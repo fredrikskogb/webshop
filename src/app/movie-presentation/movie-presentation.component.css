@@ -1,0 +1,17 @@
+.movieLoopContainer {
+    flex: 1 0 21%; /* explanation below */
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.movieImage {
+    height: 300px;
+    width: 192px;
+    background-color: grey;
+}
+
+.nameAndPriceContainer {
+    text-align: center;
+}
