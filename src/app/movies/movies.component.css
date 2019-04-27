@@ -2,3 +2,11 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.movieLoopContainer {
+    flex: 1 0 21%; /* explanation below */
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
