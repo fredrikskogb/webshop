@@ -6,7 +6,7 @@ export interface IMovie {
     price: number,
     imageUrl: string,
     year: number,
-    added: Date,
-    productCategory: []
+    added: string,
+    productCategory: any
      
 }
