@@ -8,6 +8,7 @@ import { MoviesComponent } from './movies/movies.component';
 import { MoviePresentationComponent } from './movie-presentation/movie-presentation.component';
 import { FooterComponent } from './footer/footer.component';
 import { SingleMoviePresentationComponent } from './single-movie-presentation/single-movie-presentation.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SingleMoviePresentationComponent } from './single-movie-presentation/si
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

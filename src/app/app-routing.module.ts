@@ -9,11 +9,12 @@ const appRoutes = [{ path: '', component: MoviesComponent },
 { path: 'movie/:id', component: SingleMoviePresentationComponent }];
 
 @NgModule({
-  declarations: [],
   imports: [
     RouterModule.forRoot(appRoutes),
     CommonModule
-  ]
+  ],
+  exports: [RouterModule],
+  declarations: []
 })
 
 export class AppRoutingModule { }
