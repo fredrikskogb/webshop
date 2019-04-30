@@ -21,6 +21,16 @@ export class MockDataService implements IDataService {
       year: 2008,
       added: "2016-01-05T00:00:00",
       productCategory: [{categoryId:5,category:null}, {categoryId:6,category:null}]
+    },
+    {
+      id: 77,
+      name: "Pulp fiction",
+      description: "sical tests of his ability to fight injustice",
+      price: 799,
+      imageUrl: "https://static.posters.cz/image/750webp/1288.webp",
+      year: 2008,
+      added: "2016-01-05T00:00:00",
+      productCategory: [{categoryId:5,category:null}, {categoryId:6,category:null}]
     }
   ];
 

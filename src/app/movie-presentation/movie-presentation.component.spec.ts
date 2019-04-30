@@ -22,4 +22,5 @@ describe('MoviePresentationComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
