@@ -5,6 +5,8 @@ import { MoviesComponent } from './movies/movies.component';
 import { FooterComponent } from './footer/footer.component';
 import { MoviePresentationComponent } from './movie-presentation/movie-presentation.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { SingleMoviePresentationComponent } from './single-movie-presentation/single-movie-presentation.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -14,9 +16,10 @@ describe('AppComponent', () => {
         HeaderComponent,
         MoviesComponent,
         FooterComponent,
-        MoviePresentationComponent
+        MoviePresentationComponent, 
+        SingleMoviePresentationComponent
       ],
-      imports: [HttpClientModule],
+      imports: [HttpClientModule, AppRoutingModule ],
     }).compileComponents();
   }));
 
