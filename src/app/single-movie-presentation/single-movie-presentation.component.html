@@ -1,3 +1,5 @@
-<p>
-  single-movie-presentation works!
-</p>
+<img src="{{ movie?.imageUrl }}" alt="Poster of the film: {{ movie?.name }}" class="movieImage">
+<div class="nameAndPriceContainer">
+    <p>{{ movie?.name }}, {{ movie?.year }}</p>
+    <p>{{ movie?.price }}:-</p>
+</div>

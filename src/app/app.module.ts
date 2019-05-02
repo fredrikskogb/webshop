@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -8,7 +9,6 @@ import { MoviesComponent } from './movies/movies.component';
 import { MoviePresentationComponent } from './movie-presentation/movie-presentation.component';
 import { FooterComponent } from './footer/footer.component';
 import { SingleMoviePresentationComponent } from './single-movie-presentation/single-movie-presentation.component';
-import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,9 +20,9 @@ import { AppRoutingModule } from './app-routing.module';
     SingleMoviePresentationComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    HttpClientModule,
-    AppRoutingModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -30,4 +30,5 @@ describe('MoviesComponent', () => {
   it('should contain 2 products', () => {
     expect(component.movies.length).toBe(2);
   });
+
 });

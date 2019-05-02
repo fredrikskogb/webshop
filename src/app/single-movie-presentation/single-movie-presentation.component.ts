@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { IMovie } from '../interfaces/IMovie';
+import { ActivatedRoute } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-single-movie-presentation',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SingleMoviePresentationComponent implements OnInit {
 
-  constructor() { }
+  movie: IMovie;
+
+  constructor(private route: ActivatedRoute, private service: DataService){ 
+
+  }
 
   ngOnInit() {
+
+    this.route.params.subscribe(myParams => {
+          
+      let i = parseInt(myParams["id"]);
+
+      this.service.getMovie(i).subscribe((data) => { this.movie = data; });
+
+
+    });
+
+
   }
 
 }
