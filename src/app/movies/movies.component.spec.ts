@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MoviesComponent } from './movies.component';
 import { DataService } from '../services/data.service';
@@ -11,6 +13,7 @@ describe('MoviesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [RouterTestingModule, HttpClientModule],
       declarations: [ MoviesComponent, MoviePresentationComponent ]
     })
     .overrideComponent(MoviesComponent, { set: { providers: [ {provide: DataService, useClass: MockDataService}]}})

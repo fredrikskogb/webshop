@@ -11,7 +11,7 @@ const appRoutes = [{ path: '', component: MoviesComponent },
 @NgModule({
   imports: [
     RouterModule.forRoot(appRoutes),
-    CommonModule
+    CommonModule,
   ],
   exports: [RouterModule],
   declarations: []
