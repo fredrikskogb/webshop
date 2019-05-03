@@ -3,7 +3,7 @@
         <img src="{{ movie?.imageUrl }}" alt="Poster of the film: {{ movie?.name }}" class="poster">
         <div class="addToCart">
             <p>{{ movie?.price }}:-</p>
-            <button>Add to cart</button>
+            <button (click)="addToCart( movie?.id )">Add to cart</button>
         </div>
     </div>
     <div class="descriptionContainer">

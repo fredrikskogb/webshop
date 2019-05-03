@@ -11,23 +11,19 @@ import { DataService } from '../services/data.service';
 export class SingleMoviePresentationComponent implements OnInit {
 
   movie: IMovie;
-
   constructor(private route: ActivatedRoute, private service: DataService){ 
 
   }
 
   ngOnInit() {
-
-    this.route.params.subscribe(myParams => {
-          
+    this.route.params.subscribe(myParams => {  
       let i = parseInt(myParams["id"]);
-
       this.service.getMovie(i).subscribe((data) => { this.movie = data; });
-
-
     });
+  }
 
-
+  addToCart(id){
+    localStorage.setItem(id, JSON.stringify(this.movie));
   }
 
 }
