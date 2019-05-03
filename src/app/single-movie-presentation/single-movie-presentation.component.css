@@ -1,0 +1,32 @@
+.singleMovieContainer {
+    display: flex;
+    justify-content: center;
+    margin: 3em;
+}
+
+.poster {
+    height: 300px;
+    width: 192px;
+    background-color: grey;
+}
+
+.description {
+}
+
+.descriptionContainer {
+    margin-left: 4em;
+}
+
+.addToCart {
+    display: flex;
+    justify-content: space-between;
+}
+
+.addToCart p {
+    margin: 0;
+    align-self: center;
+}
+
+.addToCart button {
+    border-radius: 10px;
+}

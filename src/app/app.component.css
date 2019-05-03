@@ -348,3 +348,16 @@ template {
 [hidden] {
   display: none;
 }
+
+input, select, button {
+  border-radius: 10px;
+  padding: 0.5em 1em;
+  border: none;
+  margin: 0 0.5rem;
+  font-size: 0.8em;
+}
+
+button {
+  background-color: rgba(112, 96, 96, 0.719);
+  color: white;
+}

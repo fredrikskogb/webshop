@@ -1,5 +1,13 @@
-<img src="{{ movie?.imageUrl }}" alt="Poster of the film: {{ movie?.name }}" class="movieImage">
-<div class="nameAndPriceContainer">
-    <p>{{ movie?.name }}, {{ movie?.year }}</p>
-    <p>{{ movie?.price }}:-</p>
+<div class="singleMovieContainer">
+    <div>
+        <img src="{{ movie?.imageUrl }}" alt="Poster of the film: {{ movie?.name }}" class="poster">
+        <div class="addToCart">
+            <p>{{ movie?.price }}:-</p>
+            <button>Add to cart</button>
+        </div>
+    </div>
+    <div class="descriptionContainer">
+        <p>{{ movie?.name }}, {{ movie?.year }}</p>
+        <p class='description'>{{ movie?.description }}</p>
+    </div>
 </div>
