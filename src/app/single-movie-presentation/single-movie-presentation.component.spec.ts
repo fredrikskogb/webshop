@@ -17,6 +17,31 @@ describe('SingleMoviePresentationComponent', () => {
     })
     .overrideComponent(SingleMoviePresentationComponent, { set: { providers: [ {provide: DataService, useClass: MockDataService}]}})
     .compileComponents();
+  
+    let store = {};
+    const mockLocalStorage = {
+      getItem: (key: string): string => {
+        return key in store ? store[key] : null;
+      },
+      setItem: (key: string, value: string) => {
+        store[key] = `${value}`;
+      },
+      removeItem: (key: string) => {
+        delete store[key];
+      },
+      clear: () => {
+        store = {};
+      }
+    };
+
+    spyOn(localStorage, 'getItem')
+    .and.callFake(mockLocalStorage.getItem);
+    spyOn(localStorage, 'setItem')
+    .and.callFake(mockLocalStorage.setItem);
+    spyOn(localStorage, 'removeItem')
+    .and.callFake(mockLocalStorage.removeItem);
+    spyOn(localStorage, 'clear')
+    .and.callFake(mockLocalStorage.clear);
   }));
 
   beforeEach(() => {
@@ -27,5 +52,25 @@ describe('SingleMoviePresentationComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+});
+
+describe('setAccessToken', () => {
+  let component: SingleMoviePresentationComponent;
+
+  it('should store the token in localStorage',
+    () => {
+      component.setAccessToken('sometoken');
+      expect(localStorage.getItem('id_token')).toEqual('sometoken');
+  });
+});
+describe('getAccessToken', () => {
+  let component: SingleMoviePresentationComponent;
+
+  it('should return stored token from localStorage',
+    () => {
+      localStorage.setItem('id_token', 'anothertoken');
+      expect(component.getAccessToken()).toEqual('anothertoken');
   });
 });
