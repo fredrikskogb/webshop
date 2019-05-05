@@ -22,8 +22,20 @@ export class SingleMoviePresentationComponent implements OnInit {
     });
   }
 
-  addToCart(id){
-    localStorage.setItem(id, JSON.stringify(this.movie));
+  addToCart(){
+    if(localStorage.getItem('cart')){
+      let cart = JSON.parse(localStorage.getItem('cart'));
+      if(cart instanceof Array){
+        cart.push(this.movie);
+        localStorage.setItem('cart', JSON.stringify(cart));
+      }else{
+        let movies = [];
+        movies.push(cart, this.movie);
+        localStorage.setItem('cart', JSON.stringify(movies));
+      }
+    }else{
+      localStorage.setItem('cart', JSON.stringify(this.movie));
+    }
   }
 
 }

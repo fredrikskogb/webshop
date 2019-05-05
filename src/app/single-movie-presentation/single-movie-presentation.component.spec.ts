@@ -33,9 +33,9 @@ describe('SingleMoviePresentationComponent', () => {
   });
 
   it('should add product to local storage', () => {
-    component.addToCart("76");
-
-    expect(localStorage.getItem("76")).toBeDefined();
+    component.addToCart();
+    expect(localStorage.getItem('cart')).toBeDefined();
+    localStorage.removeItem('cart');
   });
 
 
