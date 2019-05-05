@@ -22,4 +22,8 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should show cart.length', () => {
+    expect(component.cart.length).toBeGreaterThanOrEqual(0);
+  });
 });
