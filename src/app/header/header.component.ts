@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../app.component'
 import { IMovie } from '../interfaces/IMovie';
 
 @Component({
@@ -28,7 +27,5 @@ export class HeaderComponent implements OnInit {
   cartIsSet(){
     return this.cart.length > 0;
   }
-
-  
 
 }

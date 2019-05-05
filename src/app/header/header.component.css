@@ -1,11 +1,11 @@
-header {
+.header {
     color: white;
     height: 100px;
-    background-color: rgba(15, 0, 15, 0.808);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 2em 0 2em;
+    background: linear-gradient(to bottom,  #08374d 0%,#000000 80%,#000000 100%);
 }
 
 h1 {

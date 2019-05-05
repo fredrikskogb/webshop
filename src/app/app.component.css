@@ -349,6 +349,11 @@ template {
   display: none;
 }
 
+body {
+  background-color: black;
+  color: white;
+}
+
 input, select, button {
   border-radius: 10px;
   padding: 0.5em 1em;
@@ -358,6 +363,6 @@ input, select, button {
 }
 
 button {
-  background-color: rgba(112, 96, 96, 0.719);
-  color: white;
+  background-color: rgba(96, 101, 112, 0.719);
+  color: rgb(228, 228, 228);
 }

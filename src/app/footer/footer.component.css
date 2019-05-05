@@ -1,4 +1,4 @@
 #footerContainer{
     height:150px;
-    background-color: rgba(15, 0, 15, 0.808);
+    background: linear-gradient(to top,  #08374d 0%,#000000 80%,#000000 100%);
 }
