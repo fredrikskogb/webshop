@@ -12,6 +12,8 @@ export class HeaderComponent implements OnInit {
 
   cart: IMovie[] = [];
 
+  addedToCart = this.cart.length;
+
   ngOnInit() {
     let cart = JSON.parse(localStorage.getItem('cart'));
     if(cart){
@@ -27,5 +29,6 @@ export class HeaderComponent implements OnInit {
   cartIsSet(){
     return this.cart.length > 0;
   }
+
 
 }

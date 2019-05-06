@@ -1,5 +1,7 @@
-<img src="{{ movie?.imageUrl }}" alt="Poster of the film: {{ movie?.name }}" class="movieImage">
-<div class="nameAndPriceContainer">
-    <p>{{ movie?.name }}, {{ movie?.year }}</p>
-    <p>{{ movie?.price }}:-</p>
+<div *ngIf="movie" class="movieLoopContainer" >
+    <img src="{{ movie.imageUrl }}" alt="Poster of the film: {{ movie.name }}" class="movieImage">
+    <div class="nameAndPriceContainer">
+        <p>{{ movie.name }}, {{ movie.year }}</p>
+        <p>{{ movie.price }}:-</p>
+    </div>
 </div>

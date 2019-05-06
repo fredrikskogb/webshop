@@ -6,4 +6,13 @@
 
 .nameAndPriceContainer {
     text-align: center;
+    font-size: 0.8em;
+}
+
+.movieLoopContainer {
+    flex: 1 0 21%; /* explanation below */
+    margin: 0 0 4em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

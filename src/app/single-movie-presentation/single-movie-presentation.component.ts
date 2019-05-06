@@ -1,8 +1,7 @@
-import { Component, OnInit, EventEmitter, Output} from '@angular/core';
+import { Component, OnInit, Output} from '@angular/core';
 import { IMovie } from '../interfaces/IMovie';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../services/data.service';
-import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-single-movie-presentation',
@@ -11,10 +10,12 @@ import { HeaderComponent } from '../header/header.component';
 })
 export class SingleMoviePresentationComponent implements OnInit {
 
-  @Output()
-  addedToCart: EventEmitter<number> = new EventEmitter<number>();
+  @Output() addedToCart: number;
 
   movie: IMovie;
+
+  count: number;
+
   constructor(private route: ActivatedRoute, private service: DataService){ 
 
   }
