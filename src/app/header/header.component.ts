@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IMovie } from '../interfaces/IMovie';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-header',
@@ -8,13 +9,12 @@ import { IMovie } from '../interfaces/IMovie';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: DataService) { }
 
   cart: IMovie[] = [];
 
-  addedToCart = this.cart.length;
-
   ngOnInit() {
+
     let cart = JSON.parse(localStorage.getItem('cart'));
     if(cart){
       if(cart instanceof Array){
@@ -24,6 +24,7 @@ export class HeaderComponent implements OnInit {
         this.cart.push(cart);
       }
     }
+    
   }
 
   cartIsSet(){
