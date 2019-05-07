@@ -9,7 +9,7 @@ import { IMovie } from '../interfaces/IMovie';
 
 export class CartService implements OnInit {
 
-  cart: [];
+  cart: IMovie[];
 
   constructor() { }
 
@@ -22,9 +22,9 @@ export class CartService implements OnInit {
     if(localStorage.hasOwnProperty("cart")) {
       return false;
     }
-
-    localStorage.setItem("cart", JSON.stringify([]));
-    this.updateCart();
+      localStorage.setItem("cart", JSON.stringify([]));
+      this.updateCart();
+    
 
   }
 
@@ -42,7 +42,7 @@ export class CartService implements OnInit {
 
   addToCart(movie: IMovie) {
 
-    const cart = [...this.cart, movie];
+    const cart = this.cart.concat(movie);
     this.cart = cart;
 
     this.updateCart();

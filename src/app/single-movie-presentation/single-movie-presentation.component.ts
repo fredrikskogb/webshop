@@ -1,8 +1,7 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IMovie } from '../interfaces/IMovie';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../services/data.service';
-import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-single-movie-presentation',
@@ -12,10 +11,7 @@ import { CartService } from '../services/cart.service';
 export class SingleMoviePresentationComponent implements OnInit {
 
   movie: IMovie;
-
-  count: number;
-
-  constructor(private route: ActivatedRoute, private service: DataService, private cartService: CartService){ 
+  constructor(private route: ActivatedRoute, private service: DataService){ 
 
   }
 

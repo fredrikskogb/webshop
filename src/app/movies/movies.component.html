@@ -1,5 +1,5 @@
 <div class="moviesContainer">
     <app-movie-presentation *ngFor="let movie of movies" [movie]="movie" 
-    [routerLink]="['/movie', movie.id]" class="movieLoopContainer">
+    class="movieLoopContainer" [routerLink]="['/movie', movie.id]">
     </app-movie-presentation>
 </div>

@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeaderComponent } from './header.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CartService } from '../services/cart.service';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -26,6 +25,7 @@ describe('HeaderComponent', () => {
   });
 
   it('should show cart.length', () => {
+
     expect(component.cart.length).toBeGreaterThanOrEqual(0);
     localStorage.removeItem('cart');
   });

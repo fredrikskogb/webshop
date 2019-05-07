@@ -9,18 +9,16 @@ import { CartService } from '../services/cart.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private service: CartService) { }
+  cart: IMovie[];
 
-  cart: [];
+  constructor() { }
 
   ngOnInit() {
-    this.service.initCart();
-    this.cart = this.service.cart;
+    this.cart = JSON.parse(localStorage.getItem("cart"));
   }
 
   cartIsSet(){
     return this.cart.length > 0;
   }
-
 
 }
