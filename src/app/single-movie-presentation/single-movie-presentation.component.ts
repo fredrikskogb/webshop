@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IMovie } from '../interfaces/IMovie';
-import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../services/data.service';
 import { CartService } from '../services/cart-service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-single-movie-presentation',

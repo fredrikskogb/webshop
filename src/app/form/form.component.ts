@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IMovie } from '../interfaces/IMovie';
 
 @Component({
   selector: 'app-form',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
+  cart: IMovie[];
+
   constructor() { }
 
   ngOnInit() {
+    this.cart = JSON.parse(localStorage.getItem('cart'));
   }
 
 }

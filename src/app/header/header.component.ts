@@ -3,6 +3,7 @@ import { IMovie } from '../interfaces/IMovie';
 import { CartService } from '../services/cart-service';
 import { Subscription } from 'rxjs';
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
