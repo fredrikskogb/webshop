@@ -9,13 +9,11 @@ import { IMovie } from '../interfaces/IMovie';
 
 export class CartService implements OnInit {
 
-  cart: IMovie[];
+  cart: [];
 
   constructor() { }
 
   ngOnInit() {
-
-    this.initCart();
 
   }
 
@@ -27,8 +25,6 @@ export class CartService implements OnInit {
 
     localStorage.setItem("cart", JSON.stringify([]));
     this.updateCart();
-
-    return true;
 
   }
 

@@ -41,7 +41,7 @@ describe('CartService', () => {
 
       it("should add new item to cart array", () => {
         const service: CartService = TestBed.get(CartService);
-        const mockMovie: IMovie = TestBed.get(MockDataService).movies[0];
+        const mockMovie: IMovie = new MockDataService().movies[0];
         service.addToCart(mockMovie);
         const movieWasAdded: any = service.cart.find(movie => movie === mockMovie);
         expect(movieWasAdded).toBeTruthy();

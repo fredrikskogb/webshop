@@ -22,7 +22,7 @@ import { SingleMoviePresentationComponent } from './single-movie-presentation/si
   imports: [
     AppRoutingModule,
     BrowserModule,
-    HttpClientModule, 
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
