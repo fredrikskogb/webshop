@@ -10,8 +10,7 @@ import { Subscription } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
 
-  addedMovie: IMovie[] = [];
-  cart: IMovie[];
+  cart: IMovie[] = [];
   subscription: Subscription;
 
   constructor(private cartService: CartService) {
@@ -27,5 +26,4 @@ export class HeaderComponent implements OnInit {
   cartIsSet(){
     return this.cart.length > 0;
   }
-
 }

@@ -13,9 +13,4 @@ describe('DataService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should get amount from localstorage', () => {
-    const service: DataService = TestBed.get(DataService);
-    //service.getCartAmount();
-    //expect(service.getCartAmount.length).toBeTruthy();
-  });
 });

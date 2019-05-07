@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
 import { IMovie } from '../interfaces/IMovie';
-import { Subject, Observable } from 'rxjs';
+import { Subject, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  movie: Observable<IMovie[]>;
-  private subject = new Subject<any>();
+  private subject = new Subject<IMovie>();
 
-  constructor() { }
+  constructor() { 
+    if(!localStorage.hasOwnProperty('cart')){
+      localStorage.setItem('cart', JSON.stringify([]));
+    }
+  }
 
   addToCart(movie: IMovie){
     if(localStorage.getItem('cart')){

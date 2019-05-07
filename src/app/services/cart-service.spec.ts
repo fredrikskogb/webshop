@@ -22,6 +22,6 @@ describe('CartService', () => {
   it('should get items from cart', () => {
     const service: CartService = TestBed.get(CartService);
     const mockMovie: IMovie = new MockDataService().movies[0];
-    expect(service.getCart()).toEqual([mockMovie]);
+    expect(service.getCart()).toEqual(mockMovie);
   });
 });
