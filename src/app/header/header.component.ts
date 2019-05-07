@@ -14,7 +14,6 @@ export class HeaderComponent implements OnInit {
   cart: IMovie[];
   subscription: Subscription;
 
-
   constructor(private cartService: CartService) {
     this.subscription = this.cartService.getCart().subscribe(value => {
         this.cart.push(value);
