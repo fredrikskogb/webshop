@@ -11,5 +11,10 @@
     </select>
     <button>Search</button>
   </form>
-  <div id="cartContainer"><div *ngIf="cartIsSet()" id="amountOfItems"><span>{{ cart.length }}</span></div><img id="cartImage" src="../../assets/img/cart.svg"></div>
+  <div id="cartContainer" [routerLink]="['/checkout']">
+    <div *ngIf="cartIsSet()" id="amountOfItems">
+      <span>{{ cart.length }}</span>
+    </div>
+    <img id="cartImage" src="../../assets/img/cart.svg">
+  </div>
 </header>

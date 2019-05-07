@@ -4,9 +4,14 @@ import { RouterModule } from '@angular/router';
 
 import { MoviesComponent } from './movies/movies.component';
 import { SingleMoviePresentationComponent } from './single-movie-presentation/single-movie-presentation.component';
+import { FormComponent } from './form/form.component';
 
-const appRoutes = [{ path: '', component: MoviesComponent },
-{ path: 'movie/:id', component: SingleMoviePresentationComponent }];
+const appRoutes = 
+  [
+    { path: '', component: MoviesComponent },
+    { path: 'movie/:id', component: SingleMoviePresentationComponent },
+    { path: 'checkout', component: FormComponent }
+  ];
 
 @NgModule({
   imports: [
