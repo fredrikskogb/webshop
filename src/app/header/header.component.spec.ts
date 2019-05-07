@@ -24,9 +24,4 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should show cart.length', () => {
-
-    expect(component.cart.length).toBeGreaterThanOrEqual(0);
-    localStorage.removeItem('cart');
-  });
 });

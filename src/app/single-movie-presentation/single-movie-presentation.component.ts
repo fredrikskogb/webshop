@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IMovie } from '../interfaces/IMovie';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../services/data.service';
+import { CartService } from '../services/cart-service';
 
 @Component({
   selector: 'app-single-movie-presentation',
@@ -11,7 +12,7 @@ import { DataService } from '../services/data.service';
 export class SingleMoviePresentationComponent implements OnInit {
 
   movie: IMovie;
-  constructor(private route: ActivatedRoute, private service: DataService){ 
+  constructor(private route: ActivatedRoute, private service: DataService, private cartService: CartService){ 
 
   }
 
@@ -23,19 +24,7 @@ export class SingleMoviePresentationComponent implements OnInit {
   }
 
   addToCart(){
-    if(localStorage.getItem('cart')){
-      let cart = JSON.parse(localStorage.getItem('cart'));
-      if(cart instanceof Array){
-        cart.push(this.movie);
-        localStorage.setItem('cart', JSON.stringify(cart));
-      }else{
-        let movies = [];
-        movies.push(cart, this.movie);
-        localStorage.setItem('cart', JSON.stringify(movies));
-      }
-    }else{
-      localStorage.setItem('cart', JSON.stringify(this.movie));
-    }
+    this.cartService.addToCart(this.movie);
   }
 
 }
