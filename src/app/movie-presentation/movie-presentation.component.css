@@ -7,3 +7,7 @@
 .nameAndPriceContainer {
     text-align: center;
 }
+
+img {
+    cursor: pointer;
+}

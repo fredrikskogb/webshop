@@ -1,4 +1,4 @@
-<img src="{{ movie?.imageUrl }}" alt="Poster of the film: {{ movie?.name }}" class="movieImage">
+<img src="{{ movie?.imageUrl }}" alt="Poster of the film: {{ movie?.name }}" class="movieImage" [routerLink]="['/movie', movie?.id]">
 <div class="nameAndPriceContainer">
     <p>{{ movie?.name }}, {{ movie?.year }}</p>
     <p>{{ movie?.price }}:-</p>
