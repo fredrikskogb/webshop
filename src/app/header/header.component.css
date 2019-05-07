@@ -11,3 +11,29 @@
 h1 {
     margin: 0;
 }
+
+#cartImage {
+    filter: invert(90%);
+    height: 45px;
+    width: auto;
+    transform: scaleX(-1);
+}
+
+#cartContainer {
+    position: relative;
+    cursor: pointer;
+}
+
+#amountOfItems{
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: yellow;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: -0.4em;
+    z-index: 1;
+}
