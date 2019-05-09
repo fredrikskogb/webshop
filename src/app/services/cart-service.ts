@@ -7,7 +7,7 @@ import { Subject, Observable, of } from 'rxjs';
 })
 export class CartService {
 
-  private subject = new Subject<IMovie>();
+  private subject = new Subject<any>();
 
   constructor() { 
     if(!localStorage.hasOwnProperty('cart')){
@@ -23,6 +23,11 @@ export class CartService {
     }else{
       localStorage.setItem('cart', JSON.stringify([movie]));
     }
+    this.subject.next(movie);
+  }
+
+  updateCart(movie: IMovie[]) {
+    localStorage.setItem('cart', JSON.stringify(movie));
     this.subject.next(movie);
   }
 

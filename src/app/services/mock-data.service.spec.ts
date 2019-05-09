@@ -9,4 +9,9 @@ describe('MockDataService', () => {
     const service: MockDataService = TestBed.get(MockDataService);
     expect(service).toBeTruthy();
   });
+
+  it('should contain 2 products', () => {
+    const service: MockDataService = TestBed.get(MockDataService);
+    expect(service.movies.length).toEqual(2);
+  });
 });

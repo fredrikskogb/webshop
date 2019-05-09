@@ -6,13 +6,14 @@ import { SingleMoviePresentationComponent } from './single-movie-presentation.co
 import { DataService } from '../services/data.service';
 import { MockDataService } from '../services/mock-data.service';
 
+
 describe('SingleMoviePresentationComponent', () => {
   let component: SingleMoviePresentationComponent;
   let fixture: ComponentFixture<SingleMoviePresentationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule, RouterTestingModule],
+      imports: [RouterTestingModule, HttpClientModule ],
       declarations: [ SingleMoviePresentationComponent ],
       
     })

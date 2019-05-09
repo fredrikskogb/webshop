@@ -2,7 +2,7 @@
 
   <h2>Your order:</h2>
   <div>
-    <div *ngFor="let movie of cart; let i;" class="movieContainer">
+    <div *ngFor="let movie of cart; let i = index;" class="movieContainer">
       <p>{{ movie.name }} {{ movie.price }}:-</p>
       <button (click)="removeItem(i)">Remove item</button>
     </div>

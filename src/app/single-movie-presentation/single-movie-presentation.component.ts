@@ -23,7 +23,7 @@ export class SingleMoviePresentationComponent implements OnInit {
     });
   }
 
-  addToCart(){
+  addToCart() {
     this.cartService.addToCart(this.movie);
   }
 

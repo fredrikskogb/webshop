@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IMovie } from '../interfaces/IMovie';
+import { CartService } from '../services/cart-service';
 
 @Component({
   selector: 'app-checkout',
@@ -10,7 +11,7 @@ export class CheckoutComponent implements OnInit {
 
   cart: IMovie[];
 
-  constructor() { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit() {
     this.cart = JSON.parse(localStorage.getItem('cart'));
@@ -18,7 +19,7 @@ export class CheckoutComponent implements OnInit {
 
   removeItem(i){
     this.cart.splice(i, 1);
-    localStorage.setItem('cart', JSON.stringify(this.cart))
+    this.cartService.updateCart(this.cart);
   }
 
 }

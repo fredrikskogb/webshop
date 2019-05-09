@@ -36,13 +36,12 @@ describe('FormComponent', () => {
   });
 
   describe('removeItem()', () => {
+
     beforeEach(() => {
       const mockMovie: IMovie = new MockDataService().movies[0];
       localStorage.setItem('cart', JSON.stringify([mockMovie]));
-      fixture = TestBed.createComponent(CheckoutComponent);
-      component = fixture.componentInstance;
-      fixture.detectChanges();
     });
+
     it('should remove clicked item from cart', () => {
       const length = component.cart.length;
       expect(component.cart.length).toBe(length);
@@ -56,6 +55,7 @@ describe('FormComponent', () => {
       component.removeItem(0);
       expect(JSON.parse(localStorage.getItem('cart')).length).toBe(length-1);
     });
+
   });
 
 

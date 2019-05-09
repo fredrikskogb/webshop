@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IMovie } from '../interfaces/IMovie';
 import { CartService } from '../services/cart-service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,9 +15,15 @@ export class HeaderComponent implements OnInit {
   cart: IMovie[] = [];
   subscription: Subscription;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private router: Router) {
     this.subscription = this.cartService.getCart().subscribe(value => {
-        this.cart.push(value);
+      if(this.router.url === '/checkout'){
+        this.cart = JSON.parse(localStorage.getItem('cart'));
+        console.log("test");
+        return;
+      }
+      this.cart.push(value);
+      console.log(this.cart);
     });
   }
 
