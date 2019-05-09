@@ -14,4 +14,12 @@
     padding: 0 1em;
     height:2em;
     margin: 1em;
+    cursor: pointer;
+}
+
+.link {
+    text-decoration: underline;
+    display: inline-block;
+    cursor: pointer;
+    color: orange;
 }

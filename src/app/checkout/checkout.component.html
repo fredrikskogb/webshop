@@ -8,4 +8,9 @@
     </div>
   </div>
 
+  <div *ngIf="!cart.length > 0">
+    <p>No products in cart.</p>
+    <p [routerLink]="['']" class="link">Go back.</p>
+  </div>
+
 </div>
