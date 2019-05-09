@@ -2,6 +2,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -11,6 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SingleMoviePresentationComponent } from './single-movie-presentation/single-movie-presentation.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { FormComponent } from './form/form.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { FormComponent } from './form/form.component';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

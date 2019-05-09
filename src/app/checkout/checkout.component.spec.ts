@@ -4,6 +4,8 @@ import { CheckoutComponent } from './checkout.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MockDataService } from '../services/mock-data.service';
 import { IMovie } from '../interfaces/IMovie';
+import { FormComponent } from '../form/form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('FormComponent', () => {
   let component: CheckoutComponent;
@@ -11,8 +13,8 @@ describe('FormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [ CheckoutComponent ]
+      imports: [RouterTestingModule, ReactiveFormsModule],
+      declarations: [ CheckoutComponent, FormComponent ]
     })
     .compileComponents();
   }));

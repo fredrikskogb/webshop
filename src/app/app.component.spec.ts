@@ -8,6 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { SingleMoviePresentationComponent } from './single-movie-presentation/single-movie-presentation.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { FormComponent } from './form/form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -19,9 +22,10 @@ describe('AppComponent', () => {
         FooterComponent,
         MoviePresentationComponent, 
         SingleMoviePresentationComponent,
-        CheckoutComponent
+        CheckoutComponent,
+        FormComponent
       ],
-      imports: [HttpClientModule, AppRoutingModule ],
+      imports: [HttpClientModule, AppRoutingModule, ReactiveFormsModule, FormsModule ],
     }).compileComponents();
   }));
 

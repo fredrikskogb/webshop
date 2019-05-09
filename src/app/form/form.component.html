@@ -1,3 +1,5 @@
-<p>
-  form works!
-</p>
+<form [formGroup]="order" (ngSubmit)="submitOrder()">
+  <input type="text" formControlName="name">
+  <input type="text" formControlName="type">
+  <button type="submit">Submit order</button>
+</form>
