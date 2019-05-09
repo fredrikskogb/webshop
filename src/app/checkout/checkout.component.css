@@ -1,0 +1,17 @@
+.orderContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.movieContainer {
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+
+.movieContainer button {
+    padding: 0 1em;
+    height:2em;
+    margin: 1em;
+}

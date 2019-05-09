@@ -4,13 +4,13 @@ import { RouterModule } from '@angular/router';
 
 import { MoviesComponent } from './movies/movies.component';
 import { SingleMoviePresentationComponent } from './single-movie-presentation/single-movie-presentation.component';
-import { FormComponent } from './form/form.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const appRoutes = 
   [
     { path: '', component: MoviesComponent },
     { path: 'movie/:id', component: SingleMoviePresentationComponent },
-    { path: 'checkout', component: FormComponent }
+    { path: 'checkout', component: CheckoutComponent }
   ];
 
 @NgModule({

@@ -9,7 +9,7 @@ import { MoviesComponent } from './movies/movies.component';
 import { MoviePresentationComponent } from './movie-presentation/movie-presentation.component';
 import { FooterComponent } from './footer/footer.component';
 import { SingleMoviePresentationComponent } from './single-movie-presentation/single-movie-presentation.component';
-import { FormComponent } from './form/form.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { FormComponent } from './form/form.component';
     MoviePresentationComponent,
     FooterComponent,
     SingleMoviePresentationComponent,
-    FormComponent
+    CheckoutComponent
   ],
   imports: [
     AppRoutingModule,
