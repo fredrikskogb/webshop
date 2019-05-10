@@ -37,4 +37,8 @@ export class MockDataService implements IDataService {
   getData(): Observable<IMovie[]> {
     return of(this.movies);
   }
+
+  getMovie(i): Observable<IMovie> {
+    return of(this.movies[0]);
+  }
 }

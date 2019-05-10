@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IMovie } from '../interfaces/IMovie';
-import { Subject, Observable, of } from 'rxjs';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
