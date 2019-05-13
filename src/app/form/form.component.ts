@@ -3,6 +3,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { IMovie } from '../interfaces/IMovie';
 import { IOrderRows } from '../interfaces/IOrderRows';
 import { IOrder } from '../interfaces/IOrder';
+import { Router } from '@angular/router';
+import { CartService } from '../services/cart-service';
 
 
 @Component({
@@ -21,7 +23,7 @@ export class FormComponent implements OnInit {
     createdBy: ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private router: Router, private cartService: CartService) { }
 
   ngOnInit() {
     this.cart = JSON.parse(localStorage.getItem('cart'));
@@ -31,7 +33,6 @@ export class FormComponent implements OnInit {
     for(let i = 0; i < this.cart.length; i++){
       let amount: number = 1;
       let newItem: IOrderRows = { ProductId: this.cart[i].id , Amount: amount }
-
       this.orderRows.push(newItem);
       this.totalPrice += this.cart[i].price;
       for(let j = i + 1; j < this.cart.length; j++){
@@ -44,7 +45,6 @@ export class FormComponent implements OnInit {
       }
     }
     console.log(this.totalPrice);
-
   }
 
   createOrder(){
@@ -65,9 +65,11 @@ export class FormComponent implements OnInit {
     this.createOrder();
     localStorage.setItem('cart', JSON.stringify([]));
     this.cart = [];
+    this.cartService.updateCart(this.cart);
     console.log(this.orderRows);
     this.orderRows = [];
     console.log(this.orderRows);
+    this.router.navigate([''])
   }
 
 }

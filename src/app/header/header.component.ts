@@ -19,7 +19,6 @@ export class HeaderComponent implements OnInit {
     this.subscription = this.cartService.getCart().subscribe(value => {
       if(this.router.url === '/checkout'){
         this.cart = JSON.parse(localStorage.getItem('cart'));
-        console.log("test");
         return;
       }
       this.cart.push(value);
