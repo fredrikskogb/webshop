@@ -1,5 +1,7 @@
-<form [formGroup]="order" (ngSubmit)="submitOrder()">
-  <input type="text" formControlName="name">
-  <input type="text" formControlName="type">
+<form [formGroup]="customer" (ngSubmit)="submitOrder()">
+  <label for="companyId">Company id:</label>
+  <input type="text" formControlName="companyId" id="companyId">
+  <label for="createdBy">Your name:</label>
+  <input type="text" formControlName="createdBy" id="createdBy">
   <button type="submit">Submit order</button>
 </form>

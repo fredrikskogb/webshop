@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { IMovie } from '../interfaces/IMovie';
 import { IOrderRows } from '../interfaces/IOrderRows';
-import { CartService } from '../services/cart-service';
+import { IOrder } from '../interfaces/IOrder';
 
 
 @Component({
@@ -13,8 +13,13 @@ import { CartService } from '../services/cart-service';
 export class FormComponent implements OnInit {
 
   cart: IMovie[];
-
+  order: IOrder;
   orderRows: IOrderRows[] = [];
+  totalPrice: number;
+  customer = this.fb.group({
+    companyId: ['', Validators.required],
+    createdBy: ['', Validators.required]
+  });
 
   constructor(private fb: FormBuilder) { }
 
@@ -22,20 +27,9 @@ export class FormComponent implements OnInit {
     this.cart = JSON.parse(localStorage.getItem('cart'));
   }
 
-  order = this.fb.group({
-    name: ['', Validators.required],
-    type: ['', Validators.required]
-  });
-
-  submitOrder(){
-    this.mapItems();
-
-  }
-
   mapItems() {
 
     for(let i = 0; i < this.cart.length; i++){
-
       let amount: number = 1;
       let newItem: IOrderRows = { ProductId: this.cart[i].id , Amount: amount }
       this.orderRows.push(newItem);
@@ -47,10 +41,29 @@ export class FormComponent implements OnInit {
           this.orderRows[i].Amount += 1;
         }
       }
-
     }
+
     console.log(this.orderRows);
 
+  }
+
+  createOrder(){
+    this.order = {
+      "id": 0,
+      "companyId": 13,
+      "created": "0001-01-01T00:00:00",
+      "createdBy": this.customer.controls['createdBy'].value,
+      "paymentMethod": null,
+      "totalPrice": this.totalPrice,
+      "status": 0,
+      "orderRows": this.orderRows
+    }
+  }
+
+  submitOrder(){
+    this.mapItems();
+    this.createOrder();
+    console.log(this.totalPrice);
   }
 
 }

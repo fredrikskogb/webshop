@@ -23,7 +23,6 @@ export class HeaderComponent implements OnInit {
         return;
       }
       this.cart.push(value);
-      console.log(this.cart);
     });
   }
 
