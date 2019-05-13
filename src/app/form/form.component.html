@@ -3,5 +3,5 @@
   <input type="text" formControlName="companyId" id="companyId">
   <label for="createdBy">Your name:</label>
   <input type="text" formControlName="createdBy" id="createdBy">
-  <button type="submit">Submit order</button>
+  <button type="submit" [disabled]="!customer.valid">Submit order</button>
 </form>
