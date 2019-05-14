@@ -1,0 +1,13 @@
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+#link {
+    color: orange;
+    cursor: pointer;
+    text-decoration: underline;
+}

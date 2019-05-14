@@ -2,9 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { FormComponent } from './form.component';
-import { toBase64String } from '@angular/compiler/src/output/source_map';
 import { IMovie } from '../interfaces/IMovie';
 import { MockDataService } from '../services/mock-data.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('FormComponent', () => {
   let component: FormComponent;
@@ -13,7 +13,7 @@ describe('FormComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ FormComponent ],
-      imports: [ ReactiveFormsModule ]
+      imports: [ ReactiveFormsModule, RouterTestingModule ]
     })
     .compileComponents();
   }));
@@ -38,6 +38,13 @@ describe('FormComponent', () => {
     component.mapItems();
     expect(component.orderRows).toEqual([{ ProductId: 76 , Amount: 1 }]);
     localStorage.removeItem('cart');
+  });
+
+  it('reset values on order submit', () => {
+    component.submitOrder();
+    expect(component.orderRows).toEqual([]);
+    expect(component.cart).toEqual([]);
+    expect(component.totalPrice).toEqual(0);
   });
 
 });

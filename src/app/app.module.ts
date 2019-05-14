@@ -13,6 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SingleMoviePresentationComponent } from './single-movie-presentation/single-movie-presentation.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { FormComponent } from './form/form.component';
+import { VerificationComponent } from './verification/verification.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FormComponent } from './form/form.component';
     FooterComponent,
     SingleMoviePresentationComponent,
     CheckoutComponent,
-    FormComponent
+    FormComponent,
+    VerificationComponent
   ],
   imports: [
     AppRoutingModule,

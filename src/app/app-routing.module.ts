@@ -5,12 +5,14 @@ import { RouterModule } from '@angular/router';
 import { MoviesComponent } from './movies/movies.component';
 import { SingleMoviePresentationComponent } from './single-movie-presentation/single-movie-presentation.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { VerificationComponent } from './verification/verification.component';
 
 const appRoutes = 
   [
     { path: '', component: MoviesComponent },
     { path: 'movie/:id', component: SingleMoviePresentationComponent },
-    { path: 'checkout', component: CheckoutComponent }
+    { path: 'checkout', component: CheckoutComponent },
+    { path: 'verification', component: VerificationComponent }
   ];
 
 @NgModule({

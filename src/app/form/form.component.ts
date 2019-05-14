@@ -68,8 +68,9 @@ export class FormComponent implements OnInit {
     this.cartService.updateCart(this.cart);
     console.log(this.orderRows);
     this.orderRows = [];
+    this.totalPrice = 0;
     console.log(this.orderRows);
-    this.router.navigate([''])
+    this.router.navigate(['verification']);
   }
 
 }

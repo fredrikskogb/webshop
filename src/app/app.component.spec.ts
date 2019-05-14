@@ -11,6 +11,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { FormComponent } from './form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { VerificationComponent } from './verification/verification.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -23,7 +24,8 @@ describe('AppComponent', () => {
         MoviePresentationComponent, 
         SingleMoviePresentationComponent,
         CheckoutComponent,
-        FormComponent
+        FormComponent,
+        VerificationComponent
       ],
       imports: [HttpClientModule, AppRoutingModule, ReactiveFormsModule, FormsModule ],
     }).compileComponents();
