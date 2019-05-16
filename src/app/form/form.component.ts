@@ -5,6 +5,7 @@ import { IOrderRows } from '../interfaces/IOrderRows';
 import { IOrder } from '../interfaces/IOrder';
 import { Router } from '@angular/router';
 import { CartService } from '../services/cart-service';
+import { DataService } from '../services/data.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class FormComponent implements OnInit {
     createdBy: ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private router: Router, private cartService: CartService) { }
+  constructor(private fb: FormBuilder, private router: Router, private cartService: CartService, private dataService: DataService) { }
 
   ngOnInit() {
   }
@@ -43,7 +44,6 @@ export class FormComponent implements OnInit {
         }
       }
     }
-    console.log(this.totalPrice);
   }
 
   createOrder(){
@@ -62,13 +62,12 @@ export class FormComponent implements OnInit {
   submitOrder(){
     this.mapItems();
     this.createOrder();
+    this.dataService.setOrder(this.order).subscribe();
     localStorage.setItem('cart', JSON.stringify([]));
     this.cart = [];
     this.cartService.updateCart(this.cart);
-    console.log(this.orderRows);
     this.orderRows = [];
     this.totalPrice = 0;
-    console.log(this.orderRows);
     this.router.navigate(['verification']);
   }
 

@@ -5,6 +5,7 @@ import { FormComponent } from './form.component';
 import { IMovie } from '../interfaces/IMovie';
 import { MockDataService } from '../services/mock-data.service';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('FormComponent', () => {
   let component: FormComponent;
@@ -13,7 +14,7 @@ describe('FormComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ FormComponent ],
-      imports: [ ReactiveFormsModule, RouterTestingModule ]
+      imports: [ ReactiveFormsModule, RouterTestingModule, HttpClientModule ]
     })
     .compileComponents();
   }));

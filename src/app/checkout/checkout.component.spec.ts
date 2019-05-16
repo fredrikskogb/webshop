@@ -6,6 +6,7 @@ import { MockDataService } from '../services/mock-data.service';
 import { IMovie } from '../interfaces/IMovie';
 import { FormComponent } from '../form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('FormComponent', () => {
   let component: CheckoutComponent;
@@ -13,7 +14,7 @@ describe('FormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, ReactiveFormsModule],
+      imports: [RouterTestingModule, ReactiveFormsModule, HttpClientModule],
       declarations: [ CheckoutComponent, FormComponent ]
     })
     .compileComponents();
