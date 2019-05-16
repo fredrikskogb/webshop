@@ -13,6 +13,6 @@
     <p [routerLink]="['']" class="link">Go back.</p>
   </div>
 
-  <app-form *ngIf="cart.length > 0"></app-form>
+  <app-form *ngIf="cart.length > 0" [cart]="cart"></app-form>
 
 </div>

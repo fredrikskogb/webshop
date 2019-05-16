@@ -22,6 +22,4 @@ export class CheckoutComponent implements OnInit {
     this.cartService.updateCart(this.cart);
   }
 
-  // Change remove item to update child component
-
 }

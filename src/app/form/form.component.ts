@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { IMovie } from '../interfaces/IMovie';
 import { IOrderRows } from '../interfaces/IOrderRows';
@@ -14,7 +14,7 @@ import { CartService } from '../services/cart-service';
 })
 export class FormComponent implements OnInit {
 
-  cart: IMovie[];
+  @Input() cart: IMovie[]; 
   order: IOrder;
   orderRows: IOrderRows[] = [];
   totalPrice: number = 0;
@@ -26,7 +26,6 @@ export class FormComponent implements OnInit {
   constructor(private fb: FormBuilder, private router: Router, private cartService: CartService) { }
 
   ngOnInit() {
-    this.cart = JSON.parse(localStorage.getItem('cart'));
   }
 
   mapItems() {

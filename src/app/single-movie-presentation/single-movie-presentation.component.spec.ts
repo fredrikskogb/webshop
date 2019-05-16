@@ -33,6 +33,10 @@ describe('SingleMoviePresentationComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should contain movie with id 76', () => {
+    expect(component.movie.id).toBe(76);
+  });
+
   it('should add product to local storage and increment cart', () => {
     component.addToCart();
     expect(localStorage.getItem('cart')).toBeDefined();

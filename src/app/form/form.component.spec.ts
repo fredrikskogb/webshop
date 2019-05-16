@@ -35,12 +35,16 @@ describe('FormComponent', () => {
   });
     
   it('should structure order rows', () => { 
+    const mockMovie: IMovie = new MockDataService().movies[0];
+    component.cart = [mockMovie];
     component.mapItems();
     expect(component.orderRows).toEqual([{ ProductId: 76 , Amount: 1 }]);
     localStorage.removeItem('cart');
   });
 
   it('reset values on order submit', () => {
+    const mockMovie: IMovie = new MockDataService().movies[0];
+    component.cart = [mockMovie];
     component.submitOrder();
     expect(component.orderRows).toEqual([]);
     expect(component.cart).toEqual([]);
