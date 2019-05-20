@@ -12,6 +12,7 @@ export class AdminComponent implements OnInit {
   order: any;
   movies: IMovie[];
   orderPresentation: any = [];
+  display: boolean = true;
 
   constructor(private service: DataService) { }
 
@@ -32,6 +33,7 @@ export class AdminComponent implements OnInit {
         }
       }
     }
+    this.display = !this.display;
     return;
   }
 

@@ -1,11 +1,12 @@
-<button (click)="mapItems()">Show orders</button>
+<button (click)="mapItems()" *ngIf="display">Show orders</button>
 <div *ngIf="orderPresentation.length > 0">
   <div *ngFor="let product of orderPresentation">
     <img src="{{ product.imageUrl }}" alt="Poster of the film: {{ product.name }}" class="movieImage">
     <p>{{ product.name }}, {{ product.year }}</p>
     <p>Price: {{ product.price }}:-</p>
     <p>Amount: {{ product.amount }}</p>
-    <button (click)="deleteOrder(product.orderId)">Delete order</button>
+    <p>Order ID: {{ product.orderId }}</p>
+    <button (click)="deleteOrder(product.orderId)">Delete products with order ID</button>
   </div>
 </div>
 
