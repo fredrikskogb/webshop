@@ -7,6 +7,7 @@ import { SingleMoviePresentationComponent } from './single-movie-presentation/si
 import { CheckoutComponent } from './checkout/checkout.component';
 import { VerificationComponent } from './verification/verification.component';
 import { AdminComponent } from './admin/admin.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes = 
   [
@@ -14,7 +15,9 @@ const appRoutes =
     { path: 'movie/:id', component: SingleMoviePresentationComponent },
     { path: 'checkout', component: CheckoutComponent },
     { path: 'verification', component: VerificationComponent },
-    { path: 'admin', component: AdminComponent }
+    { path: 'admin', component: AdminComponent },
+    { path: 'page-not-found', component: PageNotFoundComponent }
+
   ];
 
 @NgModule({

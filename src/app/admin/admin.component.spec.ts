@@ -4,6 +4,7 @@ import { AdminComponent } from './admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from '../services/data.service';
 import { MockDataService } from '../services/mock-data.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AdminComponent', () => {
   let component: AdminComponent;
@@ -12,7 +13,7 @@ describe('AdminComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AdminComponent ],
-      imports: [HttpClientModule]
+      imports: [HttpClientModule, RouterTestingModule]
     })
     .overrideComponent(AdminComponent, { set: { providers: [ {provide: DataService, useClass: MockDataService}]}})
     .compileComponents();

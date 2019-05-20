@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { IMovie } from '../interfaces/IMovie';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -14,7 +15,7 @@ export class AdminComponent implements OnInit {
   orderPresentation: any = [];
   display: boolean = true;
 
-  constructor(private service: DataService) { }
+  constructor(private service: DataService, private router: Router) { }
 
   ngOnInit() {
     this.service.getOrder().subscribe((data) => { this.order = data; });
@@ -34,6 +35,9 @@ export class AdminComponent implements OnInit {
       }
     }
     this.display = !this.display;
+    if(this.orderPresentation.length === 0){
+      this.router.navigate(['page-not-found']);
+    }
     return;
   }
 
