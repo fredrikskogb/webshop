@@ -6,13 +6,15 @@ import { MoviesComponent } from './movies/movies.component';
 import { SingleMoviePresentationComponent } from './single-movie-presentation/single-movie-presentation.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { VerificationComponent } from './verification/verification.component';
+import { AdminComponent } from './admin/admin.component';
 
 const appRoutes = 
   [
     { path: '', component: MoviesComponent },
     { path: 'movie/:id', component: SingleMoviePresentationComponent },
     { path: 'checkout', component: CheckoutComponent },
-    { path: 'verification', component: VerificationComponent }
+    { path: 'verification', component: VerificationComponent },
+    { path: 'admin', component: AdminComponent }
   ];
 
 @NgModule({

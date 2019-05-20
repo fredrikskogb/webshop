@@ -14,6 +14,7 @@ import { SingleMoviePresentationComponent } from './single-movie-presentation/si
 import { CheckoutComponent } from './checkout/checkout.component';
 import { FormComponent } from './form/form.component';
 import { VerificationComponent } from './verification/verification.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { VerificationComponent } from './verification/verification.component';
     SingleMoviePresentationComponent,
     CheckoutComponent,
     FormComponent,
-    VerificationComponent
+    VerificationComponent,
+    AdminComponent
   ],
   imports: [
     AppRoutingModule,

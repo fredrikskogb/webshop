@@ -12,6 +12,7 @@ import { FormComponent } from './form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { VerificationComponent } from './verification/verification.component';
+import { AdminComponent } from './admin/admin.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -25,7 +26,8 @@ describe('AppComponent', () => {
         SingleMoviePresentationComponent,
         CheckoutComponent,
         FormComponent,
-        VerificationComponent
+        VerificationComponent,
+        AdminComponent
       ],
       imports: [HttpClientModule, AppRoutingModule, ReactiveFormsModule, FormsModule ],
     }).compileComponents();

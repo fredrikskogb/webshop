@@ -23,7 +23,12 @@ export class DataService implements IDataService {
     return this.http.get<IMovie>('https://medieinstitutet-wie-products.azurewebsites.net/api/products/' + i);
   }
 
+  getOrder(): Observable<IOrder[]> {
+    return this.http.get<IOrder[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders/?companyId=13/');
+  }
+
   setOrder(order: IOrder){
     return this.http.post('https://medieinstitutet-wie-products.azurewebsites.net/api/orders/', order);
   }
+
 }
