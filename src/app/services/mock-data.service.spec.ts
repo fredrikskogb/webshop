@@ -14,4 +14,10 @@ describe('MockDataService', () => {
     const service: MockDataService = TestBed.get(MockDataService);
     expect(service.movies.length).toEqual(2);
   });
+
+  it('should contain 1 order', () => {
+    const service: MockDataService = TestBed.get(MockDataService);
+    expect(service.order).toBeTruthy;
+    expect(service.order.length).toEqual(2);
+  });
 });

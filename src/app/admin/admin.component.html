@@ -1,3 +1,9 @@
-<div *ngFor="let product of order">
-  <p>{{ product.id }}</p>
+<button (click)="mapItems()">Show orders</button>
+<div *ngIf="orderPresentation.length > 0">
+  <div *ngFor="let product of orderPresentation">
+    <img src="{{ product.imageUrl }}" alt="Poster of the film: {{ product.name }}" class="movieImage">
+    <p>{{ product.name }}, {{ product.year }}</p>
+    <p>{{ product.price }}:-</p>
+  </div>
 </div>
+

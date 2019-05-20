@@ -24,7 +24,11 @@ export class DataService implements IDataService {
   }
 
   getOrder(): Observable<IOrder[]> {
-    return this.http.get<IOrder[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders/?companyId=13/');
+    return this.http.get<IOrder[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders/?companyId=13');
+  }
+
+  deleteOrder(){
+    return this.http.delete('https://medieinstitutet-wie-products.azurewebsites.net/api/orders/?companyId=13');
   }
 
   setOrder(order: IOrder){

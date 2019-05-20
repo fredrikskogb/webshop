@@ -43,13 +43,13 @@ describe('FormComponent', () => {
     localStorage.removeItem('cart');
   });
 
-  it('reset values on order submit', () => {
+  /*it('reset values on order submit', () => {
     const mockMovie: IMovie = new MockDataService().movies[0];
     component.cart = [mockMovie];
     component.submitOrder();
     expect(component.orderRows).toEqual([]);
     expect(component.cart).toEqual([]);
     expect(component.totalPrice).toEqual(0);
-  });
+  });*/
 
 });
