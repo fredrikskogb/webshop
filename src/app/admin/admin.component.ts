@@ -35,4 +35,8 @@ export class AdminComponent implements OnInit {
     return;
   }
 
+  deleteOrder(id: number){
+
+  }
+
 }
