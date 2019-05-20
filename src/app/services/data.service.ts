@@ -27,7 +27,7 @@ export class DataService implements IDataService {
     return this.http.get<IOrder[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders/?companyId=13');
   }
 
-  deleteOrder(id){
+  deleteOrder(id: number){
     return this.http.delete('https://medieinstitutet-wie-products.azurewebsites.net/api/orders/' + id);
   }
 

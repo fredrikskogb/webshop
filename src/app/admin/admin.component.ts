@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
-import { IOrder } from '../interfaces/IOrder';
 import { IMovie } from '../interfaces/IMovie';
 
 @Component({
@@ -39,7 +38,7 @@ export class AdminComponent implements OnInit {
   deleteOrder(id: number){
     this.service.deleteOrder(id).subscribe();
     for (let i = this.orderPresentation.length - 1; i >= 0; --i) {
-      if (this.orderPresentation[i].orderId == id) {
+      if (this.orderPresentation[i].orderId === id) {
         this.orderPresentation.splice(i,1);
       }
     }

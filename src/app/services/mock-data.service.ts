@@ -48,8 +48,8 @@ export class MockDataService implements IDataService {
       orderRows: 
         [
           {
-            ProductId: 76,
-            Amount: 1
+            productId: 76,
+            amount: 1
           }
         ]
     },
@@ -64,8 +64,8 @@ export class MockDataService implements IDataService {
       orderRows: 
         [
           {
-            ProductId: 76,
-            Amount: 1
+            productId: 77,
+            amount: 1
           }
         ]
     }
@@ -80,6 +80,15 @@ export class MockDataService implements IDataService {
   }
 
   getOrder(): Observable<IOrder[]> {
+    return of(this.order);
+  }
+
+  deleteOrder(id: number){
+    for (let i = this.order.length - 1; i >= 0; --i) {
+      if (this.order[i].orderRows[0].productId === id) {
+        this.order.splice(i,1);
+      }
+    }
     return of(this.order);
   }
 }

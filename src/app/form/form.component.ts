@@ -32,15 +32,15 @@ export class FormComponent implements OnInit {
   mapItems() {
     for(let i = 0; i < this.cart.length; i++){
       let amount: number = 1;
-      let newItem: IOrderRows = { ProductId: this.cart[i].id , Amount: amount }
+      let newItem: IOrderRows = { productId: this.cart[i].id , amount: amount }
       this.orderRows.push(newItem);
       this.totalPrice += this.cart[i].price;
       for(let j = i + 1; j < this.cart.length; j++){
-        if(this.orderRows[i].ProductId === this.cart[j].id){
+        if(this.orderRows[i].productId === this.cart[j].id){
           this.totalPrice += this.cart[j].price;
           this.cart.splice(j, 1);
           j--
-          this.orderRows[i].Amount += 1;
+          this.orderRows[i].amount += 1;
         }
       }
     }

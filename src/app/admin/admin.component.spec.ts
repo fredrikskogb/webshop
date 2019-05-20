@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, inject, fakeAsync } from '@angular/core/testing';
 
 import { AdminComponent } from './admin.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,6 +16,7 @@ describe('AdminComponent', () => {
     })
     .overrideComponent(AdminComponent, { set: { providers: [ {provide: DataService, useClass: MockDataService}]}})
     .compileComponents();
+
   }));
 
   beforeEach(() => {
@@ -40,6 +41,12 @@ describe('AdminComponent', () => {
   it('should set orderPresentation', () => {
     component.mapItems();
     expect(component.orderPresentation.length).toBe(2);
+  });
+
+  it('should delete order', () => {
+    component.mapItems();
+    component.deleteOrder(2);
+    expect(component.orderPresentation.length).toBe(1);
   });
 
  

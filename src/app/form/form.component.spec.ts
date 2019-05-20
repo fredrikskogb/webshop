@@ -39,7 +39,7 @@ describe('FormComponent', () => {
     const mockMovie: IMovie = new MockDataService().movies[0];
     component.cart = [mockMovie];
     component.mapItems();
-    expect(component.orderRows).toEqual([{ ProductId: 76 , Amount: 1 }]);
+    expect(component.orderRows).toEqual([{ productId: 76 , amount: 1 }]);
     localStorage.removeItem('cart');
   });
 
