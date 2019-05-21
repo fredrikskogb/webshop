@@ -27,9 +27,14 @@ export class AdminComponent implements OnInit {
       for( let j = 0; j < this.order[i].orderRows.length; j++){
         for(let k = 0; k < this.movies.length; k++){
           if(this.order[i].orderRows[j].productId === this.movies[k].id){
-            this.movies[k]["amount"] = this.order[i].orderRows[j].amount;
-            this.movies[k]["orderId"] = this.order[i]["id"];
-            this.orderPresentation.unshift(this.movies[k]);
+            let dummy = {};
+            dummy["amount"] = this.order[i].orderRows[j].amount;
+            dummy["orderId"] = this.order[i]["id"];
+            dummy["name"] = this.movies[k].name;
+            dummy["year"] = this.movies[k].year;
+            dummy["imageUrl"] = this.movies[k].imageUrl;
+            dummy["price"] = this.movies[k].price;
+            this.orderPresentation.unshift(dummy);
           }
         }
       }
