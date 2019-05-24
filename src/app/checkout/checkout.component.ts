@@ -46,31 +46,21 @@ export class CheckoutComponent implements OnInit {
     }, []);
   }
 
-  // Checks if object "a" has equal object properties as object "b"
-  equalObjects(a, b) {
+  removeItem(i, id){
+    let index = this.cart.findIndex(function(o){
+      return o.id === id;
+    })
+    if (index !== -1){
+      this.cart.splice(index, 1);
+      this.cartService.updateCart(this.cart);
+    } 
 
-    const aProps = Object.getOwnPropertyNames(a);
-    const bProps = Object.getOwnPropertyNames(b);
-
-    if(aProps.length != bProps.length) {
-      return false;
+    const initPrice = this.mappedCart[i].price / this.mappedCart[i].amount;
+    this.mappedCart[i].amount -= 1;
+    this.mappedCart[i].price = initPrice * this.mappedCart[i].amount; 
+    if(this.mappedCart[i].amount === 0){
+      this.mappedCart.splice(i, 1);
     }
-
-    for(let i = 0; i < aProps.length; i++) {
-      const propName = aProps[i];
-
-      if(a[propName] !== b[propName]) {
-        return false;
-      }
-    }
-
-    return true;
-  }
-
-
-  removeItem(i){
-    this.cart.splice(i, 1);
-    this.cartService.updateCart(this.cart);
   }
 
 }

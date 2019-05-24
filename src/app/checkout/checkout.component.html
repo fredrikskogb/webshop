@@ -4,15 +4,15 @@
   <div>
     <div *ngFor="let movie of mappedCart; let i = index;" class="movieContainer">
       <p><span>{{ movie.amount }}</span>{{ movie.name }} {{ movie.price }}:-</p>
-      <button (click)="removeItem(i)">Remove item</button>
+      <button (click)="removeItem(i, movie.id)">Remove item</button>
     </div>
   </div>
 
-  <div *ngIf="!cartPresentation.length > 0">
+  <div *ngIf="!mappedCart.length > 0">
     <p>No products in cart.</p>
     <p [routerLink]="['']" class="link">Go back.</p>
   </div>
 
-  <app-form *ngIf="cartPresentation.length > 0" [cart]="cart"></app-form>
+  <app-form *ngIf="mappedCart.length > 0" [cart]="cart"></app-form>
 
 </div>
