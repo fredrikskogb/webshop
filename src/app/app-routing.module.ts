@@ -16,7 +16,7 @@ const appRoutes =
     { path: 'checkout', component: CheckoutComponent },
     { path: 'verification', component: VerificationComponent },
     { path: 'admin', component: AdminComponent },
-    { path: 'page-not-found', component: PageNotFoundComponent }
+    { path: '**', component: PageNotFoundComponent }
 
   ];
 
