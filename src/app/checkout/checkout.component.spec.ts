@@ -1,12 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CheckoutComponent } from './checkout.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
+
+import { CheckoutComponent } from './checkout.component';
 import { MockDataService } from '../services/mock-data.service';
 import { IMovie } from '../interfaces/IMovie';
 import { FormComponent } from '../form/form.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+
 
 describe('FormComponent', () => {
   let component: CheckoutComponent;
@@ -15,7 +17,7 @@ describe('FormComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, ReactiveFormsModule, HttpClientModule],
-      declarations: [ CheckoutComponent, FormComponent ]
+      declarations: [ FormComponent, CheckoutComponent ]
     })
     .compileComponents();
   }));
@@ -38,6 +40,18 @@ describe('FormComponent', () => {
     localStorage.removeItem('cart');
   });
 
+  describe('duplicateToOne()', () => {
+
+    it('should remove duplicate and increase amount', () => {
+      const mockMovie: IMovie = new MockDataService().movies[0];
+      component.cart.push(mockMovie);
+      component.duplicateToOne();
+      expect(component.mappedCart.length).toEqual(1);
+      expect(component.mappedCart[0].amount).toEqual(2);
+    });
+
+  });
+
   describe('removeItem()', () => {
 
     beforeEach(() => {
@@ -48,14 +62,14 @@ describe('FormComponent', () => {
     it('should remove clicked item from cart', () => {
       const length = component.cart.length;
       expect(component.cart.length).toBe(length);
-      component.removeItem(0, 0);
+      component.removeItem(0, 76);
       expect(component.cart.length).toBe(length-1);
     });
 
     it('should remove clicked item from local storage', () => {
       const length = component.cart.length;
       expect(component.cart.length).toBe(length);
-      component.removeItem(0, 0);
+      component.removeItem(0, 76);
       expect(JSON.parse(localStorage.getItem('cart')).length).toBe(length-1);
     });
 

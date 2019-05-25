@@ -11,7 +11,6 @@ export class CheckoutComponent implements OnInit {
 
   cart: IMovie[];
   mappedCart: any[];
-  cartPresentation: any[] = [];
 
   constructor(private cartService: CartService) { }
 
