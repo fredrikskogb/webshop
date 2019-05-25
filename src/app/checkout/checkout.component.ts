@@ -11,11 +11,9 @@ export class CheckoutComponent implements OnInit {
 
   cart: IMovie[];
   mappedCart: any[];
-  cartPresentation: any[] = []
+  cartPresentation: any[] = [];
 
   constructor(private cartService: CartService) { }
-
-
 
   ngOnInit() {
     this.cart = JSON.parse(localStorage.getItem('cart')); 
@@ -46,14 +44,15 @@ export class CheckoutComponent implements OnInit {
     }, []);
   }
 
-  removeItem(i, id){
-    let index = this.cart.findIndex(function(o){
-      return o.id === id;
-    })
+  removeItem(i: number, id: number){
+
+    let index = this.cart.findIndex(function(obj){
+      return obj.id === id;
+    });
     if (index !== -1){
       this.cart.splice(index, 1);
       this.cartService.updateCart(this.cart);
-    } 
+    }
 
     const initPrice = this.mappedCart[i].price / this.mappedCart[i].amount;
     this.mappedCart[i].amount -= 1;
@@ -61,6 +60,7 @@ export class CheckoutComponent implements OnInit {
     if(this.mappedCart[i].amount === 0){
       this.mappedCart.splice(i, 1);
     }
+
   }
 
 }

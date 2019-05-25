@@ -3,7 +3,7 @@
   <h2>Your order:</h2>
   <div>
     <div *ngFor="let movie of mappedCart; let i = index;" class="movieContainer">
-      <p><span>{{ movie.amount }}</span>{{ movie.name }} {{ movie.price }}:-</p>
+      <p><span>{{ movie.amount }}</span> {{ movie.name }} {{ movie.price }}:-</p>
       <button (click)="removeItem(i, movie.id)">Remove item</button>
     </div>
   </div>

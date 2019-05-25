@@ -30,7 +30,6 @@ export class AdminComponent implements OnInit {
       for( let j = 0; j < this.order[i].orderRows.length; j++){
         for(let k = 0; k < this.movies.length; k++){
           if(this.order[i].orderRows[j].productId === this.movies[k].id){
-
             if(this.order[i].orderRows[j].amount > 1){
               this.price = this.movies[k].price * this.order[i].orderRows[j].amount;
             }else{

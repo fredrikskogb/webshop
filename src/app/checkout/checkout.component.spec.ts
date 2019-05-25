@@ -48,14 +48,14 @@ describe('FormComponent', () => {
     it('should remove clicked item from cart', () => {
       const length = component.cart.length;
       expect(component.cart.length).toBe(length);
-      component.removeItem(0);
+      component.removeItem(0, 0);
       expect(component.cart.length).toBe(length-1);
     });
 
     it('should remove clicked item from local storage', () => {
       const length = component.cart.length;
       expect(component.cart.length).toBe(length);
-      component.removeItem(0);
+      component.removeItem(0, 0);
       expect(JSON.parse(localStorage.getItem('cart')).length).toBe(length-1);
     });
 
