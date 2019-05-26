@@ -5,9 +5,17 @@
 }
 
 .movieLoopContainer {
-    flex: 1 0 21%; /* explanation below */
-    margin: 0 0 4em 0;
+    flex: 1 0 16%; 
+    margin: 0 2em 4em 2em;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+@media only screen and (min-width: 998px) {
+    .moviesContainer {
+        max-width: 85vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  }

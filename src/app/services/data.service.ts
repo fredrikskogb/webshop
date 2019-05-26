@@ -13,8 +13,6 @@ import { IOrder } from '../interfaces/IOrder';
 export class DataService implements IDataService {
   constructor(private http: HttpClient) { }
 
-  movies: Observable<IMovie[]>;
-
   getData(): Observable<IMovie[]> {
     return this.http.get<IMovie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/products');
   }

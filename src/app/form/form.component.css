@@ -1,0 +1,26 @@
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+    background-color: rgba(41, 34, 34, 0.397);
+    padding: 1.5em 3em 1.5em 3em;
+    border-radius: 5px;
+}
+
+input, button, select {
+    margin: 3px 0 0 0;
+}
+
+select {
+    margin-bottom: 1.2em;
+}
+
+input {
+    margin-bottom: 1em;
+}
+
+@media only screen and (min-width: 768px) {
+    form {
+        width: 300px;
+    }
+  }

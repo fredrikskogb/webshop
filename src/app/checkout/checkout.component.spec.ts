@@ -40,6 +40,11 @@ describe('FormComponent', () => {
     localStorage.removeItem('cart');
   });
 
+  it('should get total price', () => {
+    const mockMovie: IMovie = new MockDataService().movies[0];
+    expect(component.totalPrice).toEqual(199);
+  });
+
   describe('duplicateToOne()', () => {
 
     it('should remove duplicate and increase amount', () => {
