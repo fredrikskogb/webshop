@@ -11,12 +11,14 @@ export class CheckoutComponent implements OnInit {
 
   cart: IMovie[];
   mappedCart: any[];
+  totalPrice: number = 0;
 
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
     this.cart = JSON.parse(localStorage.getItem('cart')); 
     this.duplicateToOne();
+    this.getTotalPrice();
   }
 
   duplicateToOne(){
@@ -43,6 +45,13 @@ export class CheckoutComponent implements OnInit {
     }, []);
   }
 
+  getTotalPrice() {
+    this.totalPrice = 0;
+    for(let i = 0; i < this.mappedCart.length; i++){
+      this.totalPrice = this.totalPrice + this.mappedCart[i].price;
+    }
+  }
+
   removeItem(i: number, id: number){
 
     let index = this.cart.findIndex(function(obj){
@@ -59,6 +68,8 @@ export class CheckoutComponent implements OnInit {
     if(this.mappedCart[i].amount === 0){
       this.mappedCart.splice(i, 1);
     }
+
+    this.getTotalPrice();
 
   }
 

@@ -6,6 +6,7 @@ import { IOrder } from '../interfaces/IOrder';
 import { Router } from '@angular/router';
 import { CartService } from '../services/cart-service';
 import { DataService } from '../services/data.service';
+import * as moment from 'moment';
 
 
 @Component({
@@ -48,14 +49,14 @@ export class FormComponent implements OnInit {
 
   createOrder(){
     this.order = {
-      "id": 0,
-      "companyId": 13,
-      "created": "0001-01-01T00:00:00",
-      "createdBy": this.customer.controls['createdBy'].value,
-      "paymentMethod": null,
-      "totalPrice": this.totalPrice,
-      "status": 0,
-      "orderRows": this.orderRows
+      id: 0,
+      companyId: 13,
+      created: moment().add(2, 'hours').format(),
+      createdBy: this.customer.controls['createdBy'].value,
+      paymentMethod: null,
+      totalPrice: this.totalPrice,
+      status: 0,
+      orderRows: this.orderRows
     }
   }
 

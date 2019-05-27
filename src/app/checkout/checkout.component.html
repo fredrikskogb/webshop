@@ -3,9 +3,10 @@
   <h2>Your order:</h2>
   <div>
     <div *ngFor="let movie of mappedCart; let i = index;" class="movieContainer">
-      <p><span>{{ movie.amount }}</span> {{ movie.name }} {{ movie.price }}:-</p>
+      <p> {{ movie.name }} {{ movie.price }}:-<span *ngIf="movie.amount > 1">, quantity: {{ movie.amount }}</span></p>
       <button (click)="removeItem(i, movie.id)">Remove item</button>
     </div>
+    <p>Total price: {{ totalPrice }}:-</p>
   </div>
 
   <div *ngIf="!mappedCart.length > 0">
