@@ -57,7 +57,7 @@ export class CheckoutComponent implements OnInit {
     let index = this.cart.findIndex(function(obj){
       return obj.id === id;
     });
-    if (index !== -1){
+    if(index !== -1){
       this.cart.splice(index, 1);
       this.cartService.updateCart(this.cart);
     }

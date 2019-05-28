@@ -24,7 +24,6 @@ export class AdminComponent implements OnInit {
     this.service.getData().subscribe((data) => { this.movies = data; });
   }
 
-  // change to array.map function
   mapItems(){
     for(let i = 0; i < this.order.length; i++){
       for( let j = 0; j < this.order[i].orderRows.length; j++){

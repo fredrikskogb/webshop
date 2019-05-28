@@ -63,13 +63,18 @@ export class FormComponent implements OnInit {
   submitOrder(){
     this.mapItems();
     this.createOrder();
-    this.dataService.setOrder(this.order).subscribe();
-    localStorage.setItem('cart', JSON.stringify([]));
-    this.cart = [];
-    this.cartService.updateCart(this.cart);
-    this.orderRows = [];
-    this.totalPrice = 0;
-    this.router.navigate(['verification']);
+    this.dataService.setOrder(this.order).subscribe(data => {
+      localStorage.setItem('cart', JSON.stringify([]));
+      this.cart = [];
+      this.cartService.updateCart(this.cart);
+      this.orderRows = [];
+      this.totalPrice = 0;
+      this.router.navigate(['verification']);
+    },
+    error => {
+      this.router.navigate(['**']);
+    });
+    
   }
 
 }
