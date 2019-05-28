@@ -18,7 +18,7 @@ export class SingleMoviePresentationComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(myParams => {  
       let i = parseInt(myParams["id"]);
-      this.service.getMovie(i).subscribe((data) => { this.movie = data; }, (error) => {  });
+      this.service.getMovie(i).subscribe((data) => { this.movie = data; });
     });
   }
 
