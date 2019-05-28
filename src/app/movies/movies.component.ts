@@ -14,6 +14,7 @@ export class MoviesComponent implements OnInit {
 
   constructor(private service: DataService) { }
 
+  // Get all movies. Send to movie-presentation-component.ts with @Input
   ngOnInit() {
     this.service.getData().subscribe((data) => { this.movies = data; });
   }

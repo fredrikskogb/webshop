@@ -15,7 +15,10 @@ export class HeaderComponent implements OnInit {
   cart: IMovie[] = [];
   subscription: Subscription;
 
-  constructor(private cartService: CartService, private router: Router) {
+  constructor(private cartService: CartService, private router: Router) { }
+
+  // Show amount of products in chart
+  ngOnInit() {
     this.subscription = this.cartService.getCart().subscribe(value => {
       if(this.router.url === '/checkout'){
         this.cart = JSON.parse(localStorage.getItem('cart'));
@@ -25,11 +28,9 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.cart = JSON.parse(localStorage.getItem("cart"));
-  }
-
+  // Check if cart is set to dislplay HTML
   cartIsSet(){
     return this.cart.length > 0;
   }
+  
 }

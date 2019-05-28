@@ -9,6 +9,7 @@ import { CartService } from '../services/cart-service';
 })
 export class CheckoutComponent implements OnInit {
 
+  // send cart to form @Input
   cart: IMovie[];
   mappedCart: any[];
   totalPrice: number = 0;
@@ -21,6 +22,7 @@ export class CheckoutComponent implements OnInit {
     this.getTotalPrice();
   }
 
+  // Map cart with duplicates to one object, increase amount and price
   duplicateToOne(){
     this.mappedCart = this.cart.map(function(item) {
       return {
@@ -52,12 +54,12 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
+  // Remove product, update local storage 'cart', update cart icon with correct amount with cart-service.ts
   removeItem(i: number, id: number){
-
     let index = this.cart.findIndex(function(obj){
       return obj.id === id;
     });
-    if (index !== -1){
+    if(index !== -1){
       this.cart.splice(index, 1);
       this.cartService.updateCart(this.cart);
     }
@@ -65,12 +67,12 @@ export class CheckoutComponent implements OnInit {
     const initPrice = this.mappedCart[i].price / this.mappedCart[i].amount;
     this.mappedCart[i].amount -= 1;
     this.mappedCart[i].price = initPrice * this.mappedCart[i].amount; 
+    
     if(this.mappedCart[i].amount === 0){
       this.mappedCart.splice(i, 1);
     }
 
     this.getTotalPrice();
-
   }
 
 }
