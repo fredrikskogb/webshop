@@ -34,4 +34,8 @@ describe('MoviesComponent', () => {
     expect(component.movies.length).toBe(2);
   });
 
+  it('should set category', () => {
+    expect(component.movies[0].productCategory[0].category).toBe('Action');
+  });
+
 });

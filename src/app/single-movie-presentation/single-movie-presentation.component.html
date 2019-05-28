@@ -8,6 +8,7 @@
     </div>
     <div class="descriptionContainer">
         <p class="title">{{ movie?.name }}, {{ movie?.year }}</p>
+        <p *ngFor="let category of movie?.productCategory">{{ category.category }}</p>
         <p class='description'>{{ movie?.description }}</p>
     </div>
 </div>

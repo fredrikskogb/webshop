@@ -4,9 +4,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { IMovie } from '../interfaces/IMovie';
 import { IOrder } from '../interfaces/IOrder';
-import { catchError } from 'rxjs/operators' ;
+import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
-
+import { ICategory } from '../interfaces/ICategory';
 
 @Injectable({
   providedIn: 'root'
@@ -16,19 +16,23 @@ export class DataService implements IDataService {
   constructor(private http: HttpClient, private router: Router) { }
 
   getData(): Observable<IMovie[]> {
-    return this.http.get<IMovie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/products')
+    return this.http.get<IMovie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/products');
   }
 
   getMovie(i: number): Observable<IMovie> {
-    return this.http.get<IMovie>('https://medieinstitutet-wie-products.azurewebsites.net/api/products/' + i)
+    return this.http.get<IMovie>('https://medieinstitutet-wie-products.azurewebsites.net/api/products/' + i);
+  }
+
+  getCategory(): Observable<ICategory[]> {
+    return this.http.get<ICategory[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/categories');
   }
 
   getOrder(): Observable<IOrder[]> {
-    return this.http.get<IOrder[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders/?companyId=13')
+    return this.http.get<IOrder[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders/?companyId=13');
   }
 
   deleteOrder(id: number): Observable<any>{
-    return this.http.delete('https://medieinstitutet-wie-products.azurewebsites.net/api/orders/' + id)
+    return this.http.delete('https://medieinstitutet-wie-products.azurewebsites.net/api/orders/' + id);
   }
 
   setOrder(order: IOrder): Observable<IOrder>{
