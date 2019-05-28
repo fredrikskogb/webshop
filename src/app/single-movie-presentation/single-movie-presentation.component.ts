@@ -12,10 +12,9 @@ import { ActivatedRoute } from '@angular/router';
 export class SingleMoviePresentationComponent implements OnInit {
 
   movie: IMovie;
-  constructor(private route: ActivatedRoute, private service: DataService, private cartService: CartService){ 
+  constructor(private route: ActivatedRoute, private service: DataService, private cartService: CartService){ }
 
-  }
-
+  // Get movie through route params id
   ngOnInit() {
     this.route.params.subscribe(myParams => {  
       let i = parseInt(myParams["id"]);
@@ -23,6 +22,7 @@ export class SingleMoviePresentationComponent implements OnInit {
     });
   }
 
+  // Use /services/cart-service.ts to add movie to cart.
   addToCart() {
     this.cartService.addToCart(this.movie);
   }

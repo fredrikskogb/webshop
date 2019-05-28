@@ -31,22 +31,5 @@ describe('HeaderComponent', () => {
   it('should set cart to array', () => {
     expect(component.cart).toEqual([]);
   });
-/*
-  it('should set length of local storage cart array if has items', () => {
-    const mockMovie: IMovie = new MockDataService().movies[0];
-    localStorage.setItem('cart', JSON.stringify([mockMovie]));
-    expect(component.cart.length).toEqual(1);
-    localStorage.removeItem('cart');
-  });
 
-  describe('cartIsSet()', () => {
-    it('should return true if there are items in cart', () => {
-      const mockMovie: IMovie = new MockDataService().movies[0];
-      localStorage.setItem('cart', JSON.stringify([mockMovie]));
-      component.cartIsSet();
-      expect(component.cart.length).toEqual(1);
-      localStorage.removeItem('cart');
-    });
-  });
-*/
 });

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IMovie } from '../interfaces/IMovie';
 
 @Component({
@@ -6,12 +6,7 @@ import { IMovie } from '../interfaces/IMovie';
   templateUrl: './movie-presentation.component.html',
   styleUrls: ['./movie-presentation.component.css']
 })
-export class MoviePresentationComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+export class MoviePresentationComponent {
 
   @Input() movie: IMovie[]; 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { IMovie } from '../interfaces/IMovie';
 import { IOrderRows } from '../interfaces/IOrderRows';
@@ -14,7 +14,7 @@ import * as moment from 'moment';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit {
+export class FormComponent {
 
   @Input() cart: IMovie[]; 
   order: IOrder;
@@ -27,9 +27,7 @@ export class FormComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private router: Router, private cartService: CartService, private dataService: DataService) { }
 
-  ngOnInit() {
-  }
-
+  // Set correct values to send to createOrder()                                                                        
   mapItems() {
     for(let i = 0; i < this.cart.length; i++){
       let amount: number = 1;
@@ -47,6 +45,7 @@ export class FormComponent implements OnInit {
     }
   }
 
+  // Structure order to post to db
   createOrder(){
     this.order = {
       id: 0,
@@ -60,20 +59,23 @@ export class FormComponent implements OnInit {
     }
   }
 
+  // Structure order then remove from cart on click
   submitOrder(){
     this.mapItems();
     this.createOrder();
-    this.dataService.setOrder(this.order).subscribe(data => {
-      localStorage.setItem('cart', JSON.stringify([]));
-      this.cart = [];
-      this.cartService.updateCart(this.cart);
-      this.orderRows = [];
-      this.totalPrice = 0;
-      this.router.navigate(['verification']);
-    },
-    error => {
-      this.router.navigate(['**']);
-    });
+    this.dataService.setOrder(this.order).subscribe(
+      data => {
+        localStorage.setItem('cart', JSON.stringify([]));
+        this.cart = [];
+        this.cartService.updateCart(this.cart);
+        this.orderRows = [];
+        this.totalPrice = 0;
+        this.router.navigate(['verification']);
+      },
+        error => {
+          this.router.navigate(['**']);
+      }
+    );
     
   }
 
