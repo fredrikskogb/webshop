@@ -1,14 +1,7 @@
 <header class="header">
   <h1 [routerLink]="['']">MockShop</h1>
-  <form>
-    <input type="text" placeholder="Search...">
-    <select>
-      <option value="category">Category</option>
-      <option value="Action">Action</option>
-      <option value="Thriller">Thriller</option>
-      <option value="Comedy">Comedy</option>
-      <option value="Sci-fi">Sci-fi</option>
-    </select>
+  <form (ngSubmit)="search(searchValue)">
+    <input type="text" placeholder="Search..." #searchValue>
     <button>Search</button>
   </form>
   <div id="cartContainer" [routerLink]="['/checkout']">

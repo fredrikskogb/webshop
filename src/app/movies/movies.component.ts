@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { IMovie } from '../interfaces/IMovie';
 import { DataService } from '../services/data.service';
 import { ICategory } from '../interfaces/ICategory';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movies',
@@ -11,19 +13,30 @@ import { ICategory } from '../interfaces/ICategory';
 
 export class MoviesComponent implements OnInit {
 
-  movies: IMovie[];
+  movies: any; // Any is needed or it will bug when searched
   categories: ICategory[];
-  constructor(private service: DataService) { }
+  subscription: Subscription;
+
+  constructor(private service: DataService, private router: Router) { }
 
   // Get all movies. Send to movie-presentation-component.ts with @Input
   ngOnInit() {
+    this.getMovies();
+
+    this.subscription = this.service.getSearchedProduct().subscribe(data => {
+      if (data) {
+        this.movies = data;
+      }
+    });
+  }
+
+  getMovies(){
     this.service.getData().subscribe(
       (data) => { this.movies = data; 
       this.service.getCategory().subscribe(
         (data) => { this.categories = data;
         this.addCategory();
-        });
-
+      });
     });
   }
 

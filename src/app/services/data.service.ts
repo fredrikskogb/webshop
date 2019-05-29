@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IDataService } from '../interfaces/IDataService';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, Subject } from 'rxjs';
 import { IMovie } from '../interfaces/IMovie';
 import { IOrder } from '../interfaces/IOrder';
 import { catchError } from 'rxjs/operators';
@@ -14,6 +14,9 @@ import { ICategory } from '../interfaces/ICategory';
 
 export class DataService implements IDataService {
   constructor(private http: HttpClient, private router: Router) { }
+
+  private searchedProduct = new Subject();
+
 
   getData(): Observable<IMovie[]> {
     return this.http.get<IMovie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/products');
@@ -38,6 +41,16 @@ export class DataService implements IDataService {
   setOrder(order: IOrder): Observable<IOrder>{
     return this.http.post<IOrder>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders/', order)
     .pipe(catchError(this.errorHandler));
+  }
+
+  search(input){
+    // get product är en observable. ordna den med subsrcribe
+    this.http.get<IMovie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/search?searchText=' + input)
+    .subscribe((data) => { this.searchedProduct.next(data) });
+  }
+
+  getSearchedProduct(){
+    return this.searchedProduct.asObservable();
   }
   
   errorHandler(error: HttpErrorResponse){
