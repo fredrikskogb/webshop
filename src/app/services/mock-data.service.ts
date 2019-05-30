@@ -108,6 +108,14 @@ export class MockDataService implements IDataService {
     return of(this.order);
   }
 
+  search(): Observable<IMovie[]>{
+    return of(this.movies)[0];
+  }
+
+  getSearchedProduct(){
+    return of(this.movies);
+  }
+
   deleteOrder(id: number){
     for (let i = this.order.length - 1; i >= 0; --i) {
       if (this.order[i].orderRows[0].productId === id) {

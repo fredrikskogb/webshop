@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { IMovie } from '../interfaces/IMovie';
 import { CartService } from '../services/cart-service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 
 @Component({
@@ -13,13 +14,14 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   cart: IMovie[] = [];
-  subscription: Subscription;
+  cartSubscription: Subscription;
+  searchValue: string;
 
   constructor(private cartService: CartService, private router: Router) { }
 
   // Show amount of products in chart
   ngOnInit() {
-    this.subscription = this.cartService.getCart().subscribe(value => {
+    this.cartSubscription = this.cartService.getCart().subscribe(value => {
       if(this.router.url === '/checkout'){
         this.cart = JSON.parse(localStorage.getItem('cart'));
         return;

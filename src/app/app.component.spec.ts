@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { VerificationComponent } from './verification/verification.component';
 import { AdminComponent } from './admin/admin.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SearchResultComponent } from './search-result/search-result.component';
+import { SearchResultPresentationComponent } from './search-result-presentation/search-result-presentation.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -27,7 +29,9 @@ describe('AppComponent', () => {
         FormComponent,
         VerificationComponent,
         AdminComponent,
-        PageNotFoundComponent
+        PageNotFoundComponent,
+        SearchResultComponent,
+        SearchResultPresentationComponent
       ],
       imports: [HttpClientModule, AppRoutingModule, ReactiveFormsModule, FormsModule ],
     }).compileComponents();

@@ -11,19 +11,25 @@ import { ICategory } from '../interfaces/ICategory';
 
 export class MoviesComponent implements OnInit {
 
-  movies: IMovie[];
+  movies: IMovie[]; // Any is needed or it will bug when searched
   categories: ICategory[];
+
   constructor(private service: DataService) { }
 
   // Get all movies. Send to movie-presentation-component.ts with @Input
   ngOnInit() {
+    if(!this.movies){
+      this.getMovies();
+    }
+  }
+
+  getMovies(){
     this.service.getData().subscribe(
       (data) => { this.movies = data; 
       this.service.getCategory().subscribe(
         (data) => { this.categories = data;
         this.addCategory();
-        });
-
+      });
     });
   }
 
