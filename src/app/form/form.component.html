@@ -4,9 +4,9 @@
   <label for="createdBy">Your name:</label>
   <input type="text" formControlName="createdBy" id="createdBy">
   <label for="paymentMethod">Payment method:</label>
-  <select id="paymentMethod">
-    <option value="">Swish</option>
-    <option value="">PayPal</option>
+  <select formControlName="paymentMethod" id="paymentMethod">
+    <option value="Swish">Swish</option>
+    <option value="PayPal">PayPal</option>
   </select>
   <button type="submit" [disabled]="!customer.valid">Submit order</button>
 </form>
