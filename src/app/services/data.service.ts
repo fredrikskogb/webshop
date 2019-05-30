@@ -44,13 +44,7 @@ export class DataService implements IDataService {
   }
 
   search(input){
-    // get product är en observable. ordna den med subsrcribe
-    this.http.get<IMovie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/search?searchText=' + input)
-    .subscribe((data) => { this.searchedProduct.next(data) });
-  }
-
-  getSearchedProduct(){
-    return this.searchedProduct.asObservable();
+    return this.http.get<IMovie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/search?searchText=' + input);
   }
   
   errorHandler(error: HttpErrorResponse){

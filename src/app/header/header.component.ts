@@ -13,26 +13,21 @@ import { DataService } from '../services/data.service';
 })
 export class HeaderComponent implements OnInit {
 
-  //@Output() productSearched = new EventEmitter<string>();
   cart: IMovie[] = [];
-  subscription: Subscription;
+  cartSubscription: Subscription;
+  searchValue: string;
 
-  constructor(private cartService: CartService, private router: Router, private service: DataService) { }
+  constructor(private cartService: CartService, private router: Router) { }
 
   // Show amount of products in chart
   ngOnInit() {
-    this.subscription = this.cartService.getCart().subscribe(value => {
+    this.cartSubscription = this.cartService.getCart().subscribe(value => {
       if(this.router.url === '/checkout'){
         this.cart = JSON.parse(localStorage.getItem('cart'));
         return;
       }
       this.cart.push(value);
     });
-  }
-
-  search(searchValue){
-    this.service.search(searchValue.value);
-    this.router.navigate(['']);
   }
 
   // Check if cart is set to dislplay HTML

@@ -1,8 +1,8 @@
 <header class="header">
   <h1 [routerLink]="['']">MockShop</h1>
-  <form (ngSubmit)="search(searchValue)">
-    <input type="text" placeholder="Search..." #searchValue>
-    <button>Search</button>
+  <form>
+    <input type="text" placeholder="Search..." [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}">
+    <button [routerLink]="['/search', searchValue]">Search</button>
   </form>
   <div id="cartContainer" [routerLink]="['/checkout']">
     <div *ngIf="cartIsSet()" id="amountOfItems">
