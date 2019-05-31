@@ -5,6 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { SingleMoviePresentationComponent } from './single-movie-presentation.component';
 import { DataService } from '../services/data.service';
 import { MockDataService } from '../services/mock-data.service';
+import { LoadingAnimationComponent } from '../loading-animation/loading-animation.component';
 
 
 describe('SingleMoviePresentationComponent', () => {
@@ -14,7 +15,7 @@ describe('SingleMoviePresentationComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, HttpClientModule ],
-      declarations: [ SingleMoviePresentationComponent ],
+      declarations: [ SingleMoviePresentationComponent, LoadingAnimationComponent ]
       
     })
 

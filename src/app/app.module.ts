@@ -15,6 +15,9 @@ import { FormComponent } from './form/form.component';
 import { VerificationComponent } from './verification/verification.component';
 import { AdminComponent } from './admin/admin.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SearchResultComponent } from './search-result/search-result.component';
+import { SearchResultPresentationComponent } from './search-result-presentation/search-result-presentation.component';
+import { LoadingAnimationComponent } from './loading-animation/loading-animation.component';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FormComponent,
     VerificationComponent,
     AdminComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SearchResultComponent,
+    SearchResultPresentationComponent,
+    LoadingAnimationComponent
   ],
   imports: [
     AppRoutingModule,

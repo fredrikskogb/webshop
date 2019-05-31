@@ -8,6 +8,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { VerificationComponent } from './verification/verification.component';
 import { AdminComponent } from './admin/admin.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 const appRoutes = 
   [
@@ -16,8 +17,8 @@ const appRoutes =
     { path: 'checkout', component: CheckoutComponent },
     { path: 'verification', component: VerificationComponent },
     { path: 'admin', component: AdminComponent },
+    { path: 'search/:searchValue', component: SearchResultComponent },
     { path: '**', component: PageNotFoundComponent }
-
   ];
 
 @NgModule({

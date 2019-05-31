@@ -3,11 +3,13 @@
         <img src="{{ movie?.imageUrl }}" alt="Poster of the film: {{ movie?.name }}" class="poster">
         <div class="addToCart">
             <p>{{ movie?.price }}:-</p>
-            <button (click)="addToCart( movie?.id )">Add to cart</button>
+            <button (click)="addToCart(movie?.id)">Add to cart</button>
         </div>
     </div>
     <div class="descriptionContainer">
         <p class="title">{{ movie?.name }}, {{ movie?.year }}</p>
+        <p *ngFor="let category of movie?.productCategory">{{ category.category }}</p>
         <p class='description'>{{ movie?.description }}</p>
     </div>
 </div>
+<app-loading-animation *ngIf='!loading'></app-loading-animation>
