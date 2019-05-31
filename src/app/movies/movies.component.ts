@@ -13,6 +13,7 @@ export class MoviesComponent implements OnInit {
 
   movies: IMovie[]; // Any is needed or it will bug when searched
   categories: ICategory[];
+  loading: boolean = false;
 
   constructor(private service: DataService) { }
 
@@ -25,10 +26,14 @@ export class MoviesComponent implements OnInit {
 
   getMovies(){
     this.service.getData().subscribe(
-      (data) => { this.movies = data; 
+      (data) => { 
+        this.loading = true;
+        this.movies = data;
+
       this.service.getCategory().subscribe(
-        (data) => { this.categories = data;
-        this.addCategory();
+        (data) => { 
+          this.categories = data;
+          this.addCategory();
       });
     });
   }

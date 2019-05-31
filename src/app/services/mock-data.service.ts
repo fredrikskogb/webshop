@@ -108,11 +108,7 @@ export class MockDataService implements IDataService {
     return of(this.order);
   }
 
-  search(): Observable<IMovie[]>{
-    return of(this.movies)[0];
-  }
-
-  getSearchedProduct(){
+  search(input): Observable<IMovie[]>{
     return of(this.movies);
   }
 
