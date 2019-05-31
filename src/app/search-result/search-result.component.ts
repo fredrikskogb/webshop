@@ -12,7 +12,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SearchResultComponent implements OnInit {
 
   movies: IMovie[];
-  subscription: Subscription;
   loading: boolean = false;
 
   constructor(private route: ActivatedRoute, private service: DataService, private router: Router) { }
