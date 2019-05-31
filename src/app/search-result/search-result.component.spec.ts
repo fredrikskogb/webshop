@@ -5,7 +5,7 @@ import { DataService } from '../services/data.service';
 import { MockDataService } from '../services/mock-data.service';
 import { SearchResultPresentationComponent } from '../search-result-presentation/search-result-presentation.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { LoadingAnimationComponent } from '../UI/loading-animation/loading-animation.component';
+import { LoadingAnimationComponent } from '../ui/loading-animation/loading-animation.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 

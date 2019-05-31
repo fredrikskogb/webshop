@@ -17,7 +17,7 @@ import { AdminComponent } from './admin/admin.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { SearchResultPresentationComponent } from './search-result-presentation/search-result-presentation.component';
-import { LoadingAnimationComponent } from './UI/loading-animation/loading-animation.component';
+import { LoadingAnimationComponent } from './ui/loading-animation/loading-animation.component';
 
 
 @NgModule({
