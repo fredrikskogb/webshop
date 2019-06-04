@@ -23,7 +23,7 @@ export class FormComponent {
   customer = this.fb.group({
     companyId: ['', Validators.required],
     createdBy: ['', Validators.required],
-    paymentMethod: ''
+    paymentMethod: ['', Validators.required]
   });
 
   constructor(private fb: FormBuilder, private router: Router, private cartService: CartService, private dataService: DataService) { }
@@ -57,6 +57,12 @@ export class FormComponent {
       totalPrice: this.totalPrice,
       status: 0,
       orderRows: this.orderRows
+    }
+  }
+
+  checkForm(){
+    if(this.customer.controls['companyId'].value || this.customer.controls['createdBy'].value || this.customer.controls['paymentMethod'].value){
+      
     }
   }
 

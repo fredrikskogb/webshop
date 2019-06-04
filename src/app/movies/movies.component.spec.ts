@@ -6,7 +6,7 @@ import { MoviesComponent } from './movies.component';
 import { DataService } from '../services/data.service';
 import { MockDataService } from '../services/mock-data.service';
 import { MoviePresentationComponent } from '../movie-presentation/movie-presentation.component';
-import { LoadingAnimationComponent } from '../loading-animation/loading-animation.component';
+import { LoadingAnimationComponent } from '../ui/loading-animation/loading-animation.component';
 
 describe('MoviesComponent', () => {
   let component: MoviesComponent;

@@ -1,7 +1,13 @@
 <header class="header">
   <h1 [routerLink]="['']">MockShop</h1>
   <form>
-    <input type="text" placeholder="Search..." [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}">
+    <input type="text" placeholder="Search..." [(ngModel)]="searchValue" [ngModelOptions]="{standalone: true}"
+    (keyup)="getSuggestions()">
+    <div id="suggestions">
+      <p *ngFor="let suggestion of suggestions" (click)="setSearchValue(suggestion)" id="singleSuggestion">
+        {{suggestion}}
+      </p>
+    </div>
     <button [routerLink]="['/search', searchValue]">Search</button>
   </form>
   <div id="cartContainer" [routerLink]="['/checkout']">

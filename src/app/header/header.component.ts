@@ -14,14 +14,12 @@ import { DataService } from '../services/data.service';
 export class HeaderComponent implements OnInit {
 
   cart: IMovie[] = [];
-  cartSubscription: Subscription;
+  subscription: Subscription;
   searchValue: string;
+  suggestions: any = [];
 
-  constructor(private cartService: CartService, private router: Router) { }
-
-  // Show amount of products in chart
-  ngOnInit() {
-    this.cartSubscription = this.cartService.getCart().subscribe(value => {
+  constructor(private cartService: CartService, private router: Router, private dataService: DataService) {
+    this.subscription = this.cartService.getCart().subscribe(value => {
       if(this.router.url === '/checkout'){
         this.cart = JSON.parse(localStorage.getItem('cart'));
         return;
@@ -30,9 +28,32 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  // Show amount of products in chart
+  ngOnInit() {
+    this.cart = JSON.parse(localStorage.getItem("cart"));
+  }
+
   // Check if cart is set to dislplay HTML
   cartIsSet(){
     return this.cart.length > 0;
+  }
+
+  // Gives search suggestions to user in a div
+  getSuggestions(){
+    this.suggestions = [];
+    if(this.searchValue.length > 0){
+      this.dataService.search(this.searchValue).subscribe(suggestion => {
+        for(let i = 0; i < suggestion.length; i++){
+          this.suggestions.push(suggestion[i].name);
+        }
+      });
+    }
+  }
+
+  // When clicking searchvalue, set parameter to the placeholder/searchValue
+  setSearchValue(name){
+    this.searchValue = name;
+    this.suggestions = [];
   }
   
 }

@@ -11,17 +11,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SearchResultComponent implements OnInit {
 
-  movies: any;
-  subscription: Subscription;
+  movies: IMovie[];
+  loading: boolean = false;
 
   constructor(private route: ActivatedRoute, private service: DataService, private router: Router) { }
   ngOnInit() {    
     this.route.params.subscribe(myParams => {  
-      //let input = parseInt(myParams["searchValue"]);
       let input = myParams.searchValue;
       this.service.search(input).subscribe((data) => { 
         this.movies = data; 
-        if(this.movies.length === 0){
+        this.loading = true;
+        if(this.movies.length === 0 || myParams.searchValue === ''){
           this.router.navigate(['**']);
         }
       });
