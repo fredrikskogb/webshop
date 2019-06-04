@@ -6,6 +6,7 @@ import { MoviesComponent } from './movies.component';
 import { DataService } from '../services/data.service';
 import { MockDataService } from '../services/mock-data.service';
 import { MoviePresentationComponent } from '../movie-presentation/movie-presentation.component';
+import { LoadingAnimationComponent } from '../ui/loading-animation/loading-animation.component';
 
 describe('MoviesComponent', () => {
   let component: MoviesComponent;
@@ -14,7 +15,7 @@ describe('MoviesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, HttpClientModule],
-      declarations: [ MoviesComponent, MoviePresentationComponent ]
+      declarations: [ MoviesComponent, LoadingAnimationComponent, MoviePresentationComponent ]
     })
     .overrideComponent(MoviesComponent, { set: { providers: [ {provide: DataService, useClass: MockDataService}]}})
     .compileComponents();
@@ -32,6 +33,10 @@ describe('MoviesComponent', () => {
 
   it('should contain 2 products', () => {
     expect(component.movies.length).toBe(2);
+  });
+
+  it('should set category', () => {
+    expect(component.movies[0].productCategory[0].category).toBe('Action');
   });
 
 });

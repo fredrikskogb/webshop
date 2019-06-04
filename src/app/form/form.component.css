@@ -11,6 +11,10 @@ input, button, select {
     margin: 3px 0 0 0;
 }
 
+button {
+    cursor: pointer;
+}
+
 select {
     margin-bottom: 1.2em;
 }

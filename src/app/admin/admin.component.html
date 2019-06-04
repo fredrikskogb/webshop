@@ -1,12 +1,17 @@
-<button (click)="mapItems()" *ngIf="display">Show orders</button>
-<div *ngIf="orderPresentation.length > 0">
-  <div *ngFor="let product of orderPresentation">
-    <img src="{{ product.imageUrl }}" alt="Poster of the film: {{ product.name }}" class="movieImage">
-    <p>{{ product.name }}, {{ product.year }}</p>
-    <p>Price: {{ product.price }}:-</p>
-    <p>Amount: {{ product.amount }}</p>
-    <p>Order ID: {{ product.orderId }}</p>
-    <button (click)="deleteOrder(product.orderId)">Delete products with order ID</button>
+<button (click)="mapItems()" *ngIf="display" id="show">Show orders</button>
+<div id="orderToDelete">
+  <p>Delete products highlighted green.</p>
+  <p (click)="deleteOrder(orderToDelete)" class="option">Yes</p>
+  <p (click)="resetActiveOrder()" class="option">No</p>
+</div>
+<div *ngIf="orderPresentation.length > 0" id="movieContainer">
+  <div *ngFor="let product of orderPresentation" id=singleMovie>
+      <img src="{{ product.imageUrl }}" alt="Poster of the film: {{ product.name }}" class="movieImage">
+      <p>{{ product.name }}, {{ product.year }}</p>
+      <p>Price: {{ product.price }}:-</p>
+      <p>Amount: {{ product.amount }}</p>
+      <p class="{{product.orderId}}">Order ID: {{ product.orderId }}</p>
+      <button (click)="activeOrder(product.orderId)" id="deleteButton">Delete products with order ID</button>
   </div>
 </div>
 

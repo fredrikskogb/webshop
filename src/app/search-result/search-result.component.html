@@ -1,0 +1,6 @@
+<div class="moviesContainer">
+  <app-loading-animation *ngIf="!loading"></app-loading-animation>
+  <app-search-result-presentation *ngFor="let movie of movies" [movie]="movie" 
+  class="movieLoopContainer">
+  </app-search-result-presentation>
+</div>
