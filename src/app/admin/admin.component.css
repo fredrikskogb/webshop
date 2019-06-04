@@ -62,7 +62,20 @@ button {
     opacity: 0.9;
     border-radius: 5px;
     font-size: 120%;
+    cursor: grab;
+}
+
+#orderToDelete:active{
+    box-shadow: 1px 1px 0px #999,
+    6px 6px 0px rgba(51, 51, 51, 0.25),
+    9px 9px 0px rgba(44, 44, 44, 0.25),
+    12px 12px 0px rgb(32, 32, 32, 0.25),
+    15px 15px 0px rgb(29, 29, 29, 0.25),
+    18px 18px 0px rgb(32, 32, 32, 0.25);
+    transition: 0.05s;
     cursor: move;
+    background-color: rgb(252, 253, 248);
+    padding: 1.1em;
 }
 
 #orderToDelete p {
