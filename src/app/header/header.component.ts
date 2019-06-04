@@ -40,13 +40,14 @@ export class HeaderComponent implements OnInit {
 
   // Gives search suggestions to user in a div
   getSuggestions(){
-    this.dataService.search(this.searchValue).subscribe(suggestion => {
-      this.suggestions = [];
-      for(let i = 0; i < suggestion.length; i++){
-        this.suggestions.push(suggestion[i].name);
-        console.log(this.suggestions);
-      }
-    });
+    if(this.searchValue.length > 0){
+      this.dataService.search(this.searchValue).subscribe(suggestion => {
+        this.suggestions = [];
+        for(let i = 0; i < suggestion.length; i++){
+          this.suggestions.push(suggestion[i].name);
+        }
+      });
+    }
   }
 
   // When clicking searchvalue, set parameter to the placeholder/searchValue
