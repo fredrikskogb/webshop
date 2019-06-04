@@ -3,6 +3,7 @@ import { HeaderComponent } from './header.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -11,7 +12,7 @@ describe('HeaderComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ HeaderComponent ],
-      imports: [ RouterTestingModule, FormsModule ]
+      imports: [ RouterTestingModule, FormsModule, HttpClientModule ]
     })
     .compileComponents();
   }));

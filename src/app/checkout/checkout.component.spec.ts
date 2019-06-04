@@ -10,7 +10,7 @@ import { IMovie } from '../interfaces/IMovie';
 import { FormComponent } from '../form/form.component';
 
 
-describe('FormComponent', () => {
+describe('CheckoutComponent', () => {
   let component: CheckoutComponent;
   let fixture: ComponentFixture<CheckoutComponent>;
 
