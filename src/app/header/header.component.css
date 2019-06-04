@@ -44,3 +44,28 @@ h1 {
     left: -0.4em;
     z-index: 1;
 }
+
+input {
+    width: 15em;
+}
+
+button {
+    cursor: pointer;
+}
+
+#suggestions {
+    position: absolute;
+    width: 15em;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+}
+
+#singleSuggestion{
+    cursor: pointer;
+    padding: 5px;
+}
+
+#singleSuggestion:hover{
+    background-color: rgb(163, 181, 230);
+}

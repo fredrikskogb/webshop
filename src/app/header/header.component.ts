@@ -16,8 +16,9 @@ export class HeaderComponent implements OnInit {
   cart: IMovie[] = [];
   subscription: Subscription;
   searchValue: string;
+  suggestions: any = [];
 
-  constructor(private cartService: CartService, private router: Router) {
+  constructor(private cartService: CartService, private router: Router, private dataService: DataService) {
     this.subscription = this.cartService.getCart().subscribe(value => {
       if(this.router.url === '/checkout'){
         this.cart = JSON.parse(localStorage.getItem('cart'));
@@ -35,6 +36,23 @@ export class HeaderComponent implements OnInit {
   // Check if cart is set to dislplay HTML
   cartIsSet(){
     return this.cart.length > 0;
+  }
+
+  // Gives search suggestions to user in a div
+  getSuggestions(){
+    this.dataService.search(this.searchValue).subscribe(suggestion => {
+      this.suggestions = [];
+      for(let i = 0; i < suggestion.length; i++){
+        this.suggestions.push(suggestion[i].name);
+        console.log(this.suggestions);
+      }
+    });
+  }
+
+  // When clicking searchvalue, set parameter to the placeholder/searchValue
+  setSearchValue(name){
+    this.searchValue = name;
+    this.suggestions = [];
   }
   
 }
