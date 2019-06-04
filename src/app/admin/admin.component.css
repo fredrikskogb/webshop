@@ -1,3 +1,12 @@
+#show {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8em;
+    height: 3em;
+}
+
 .movieImage {
     height: 300px;
     width: 192px;
@@ -17,8 +26,13 @@ button {
 #movieContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    margin-top: 4em;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#singleMovie {
+    margin: 4em 1em 4em 1em;
+    min-width: 13%;
 }
 
 .active {
@@ -27,8 +41,13 @@ button {
 
 #orderToDelete{
     display: none;
+    text-align: center;
 }
 
 .option {
     cursor: pointer;
+    display: inline-block;
+    margin: 10px;
+    color: orange;
+    text-decoration: underline;
 }

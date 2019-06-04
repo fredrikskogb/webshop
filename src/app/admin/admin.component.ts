@@ -67,19 +67,25 @@ export class AdminComponent implements OnInit {
         this.orderPresentation.splice(i,1);
       }
     }
+    this.resetActiveOrder();
   }
 
   activeOrder(id){
     const modal = document.getElementById("orderToDelete");
     const orderId = document.getElementsByClassName(id);
-
+    const activeOrder = document.getElementsByClassName("active");
     this.orderToDelete = id;
 
-    modal.style.display = "block";
+    if(activeOrder.length === 0){
+      modal.style.display = "block";
 
-    for(let i = 0; i < orderId.length; i++){
-      orderId[i].className += ' active';
+      for(let i = 0; i < orderId.length; i++){
+        orderId[i].className += ' active';
+      }
+    }else{
+      this.resetActiveOrder();
     }
+
   }
 
   resetActiveOrder(){

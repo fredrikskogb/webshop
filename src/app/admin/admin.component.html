@@ -1,11 +1,11 @@
-<button (click)="mapItems()" *ngIf="display">Show orders</button>
+<button (click)="mapItems()" *ngIf="display" id="show">Show orders</button>
 <div id="orderToDelete">
-  <p>Are you sure? Order products are highlighted green.</p>
+  <p>Delete products highlighted green.</p>
   <p (click)="deleteOrder(orderToDelete)" class="option">Yes</p>
   <p (click)="resetActiveOrder()" class="option">No</p>
 </div>
 <div *ngIf="orderPresentation.length > 0" id="movieContainer">
-  <div *ngFor="let product of orderPresentation">
+  <div *ngFor="let product of orderPresentation" id=singleMovie>
       <img src="{{ product.imageUrl }}" alt="Poster of the film: {{ product.name }}" class="movieImage">
       <p>{{ product.name }}, {{ product.year }}</p>
       <p>Price: {{ product.price }}:-</p>
