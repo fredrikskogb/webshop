@@ -18,6 +18,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { SearchResultComponent } from './search-result/search-result.component';
 import { SearchResultPresentationComponent } from './search-result-presentation/search-result-presentation.component';
 import { LoadingAnimationComponent } from './ui/loading-animation/loading-animation.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { LoadingAnimationComponent } from './ui/loading-animation/loading-animat
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

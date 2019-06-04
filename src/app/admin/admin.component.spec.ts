@@ -46,7 +46,8 @@ describe('AdminComponent', () => {
 
   it('should delete order', () => {
     component.mapItems();
-    component.deleteOrder(2);
+    component.activeOrder(2);
+    component.deleteOrder();
     expect(component.orderPresentation.length).toBe(1);
   });
 

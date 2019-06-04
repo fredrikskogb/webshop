@@ -1,5 +1,5 @@
 <button (click)="mapItems()" *ngIf="display" id="show">Show orders</button>
-<div id="orderToDelete">
+<div id="orderToDelete" cdkDrag>
   <p>Delete products highlighted green.</p>
   <p (click)="deleteOrder(orderToDelete)" class="option">Yes</p>
   <p (click)="resetActiveOrder()" class="option">No</p>
@@ -11,7 +11,7 @@
       <p>Price: {{ product.price }}:-</p>
       <p>Amount: {{ product.amount }}</p>
       <p class="{{product.orderId}}">Order ID: {{ product.orderId }}</p>
-      <button (click)="activeOrder(product.orderId)" id="deleteButton">Delete products with order ID</button>
+      <button (click)="activeOrder(product.orderId)" id="deleteButton">Delete order</button>
   </div>
 </div>
 
