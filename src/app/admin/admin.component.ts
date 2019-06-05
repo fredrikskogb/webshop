@@ -15,15 +15,19 @@ export class AdminComponent implements OnInit {
   order: IOrder[];
   movies: IMovie[];
   orderPresentation: any = [];
-  display: boolean = true;
   price: number;
   orderToDelete: number;
 
   constructor(private service: DataService, private router: Router) { }
 
   ngOnInit() {
-    this.service.getOrder().subscribe((data) => { this.order = data; });
-    this.service.getData().subscribe((data) => { this.movies = data; });
+    this.service.getOrder().subscribe((data) => { 
+      this.order = data; 
+      this.service.getData().subscribe((data) => { 
+        this.movies = data;
+        this.mapItems();
+      });
+    });
   }
 
   // Loop through orders, orderRows in orders and movies(compare product id)
@@ -54,7 +58,6 @@ export class AdminComponent implements OnInit {
         }
       }
     }
-    this.display = !this.display;
     if(this.orderPresentation.length === 0){
       this.router.navigate(['**']);
     }
