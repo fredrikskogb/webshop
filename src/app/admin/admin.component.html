@@ -5,12 +5,16 @@
 </div>
 <div *ngIf="orderPresentation.length > 0" id="movieContainer">
   <div *ngFor="let product of orderPresentation" id=singleMovie>
+    <div>
       <img src="{{ product.imageUrl }}" alt="Poster of the film: {{ product.name }}" class="movieImage">
       <p>{{ product.name }}, {{ product.year }}</p>
       <p>Price: {{ product.price }}:-</p>
       <p>Amount: {{ product.amount }}</p>
       <p class="{{product.orderId}}">Order ID: {{ product.orderId }}</p>
+    </div>
+    <div>
       <button (click)="activeOrder(product.orderId)" id="deleteButton">Delete order</button>
+    </div>
   </div>
 </div>
 

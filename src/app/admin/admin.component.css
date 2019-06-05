@@ -22,8 +22,6 @@ button {
 #deleteButton {
     cursor: pointer;
     margin: 0;
-    position: absolute;
-    bottom: 0;
 }
 
 #movieContainer {
@@ -37,7 +35,9 @@ button {
     margin: 4em 1em 4em 1em;
     min-width: 13%;
     min-height: 550px;
-    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 #singleMovie p {
@@ -56,7 +56,6 @@ button {
     left: 50%;
     transform: translate(-30%, -50%);
     background-color: white;
-    z-index: 20;
     color: black;
     padding: 1em;
     opacity: 0.9;
