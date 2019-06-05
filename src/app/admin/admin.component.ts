@@ -58,19 +58,23 @@ export class AdminComponent implements OnInit {
         }
       }
     }
+
     if(this.orderPresentation.length === 0){
       this.router.navigate(['**']);
     }
+    
     return;
   }
 
   deleteOrder(){
     this.service.deleteOrder(this.orderToDelete).subscribe();
+
     for (let i = this.orderPresentation.length - 1; i >= 0; --i) {
       if (this.orderPresentation[i].orderId === this.orderToDelete) {
         this.orderPresentation.splice(i,1);
       }
     }
+
     this.resetActiveOrder();
   }
 
@@ -82,7 +86,6 @@ export class AdminComponent implements OnInit {
 
     if(activeOrder.length === 0){
       modal.style.display = "block";
-
       for(let i = 0; i < orderId.length; i++){
         orderId[i].className += ' active';
       }
@@ -100,6 +103,7 @@ export class AdminComponent implements OnInit {
     while (activeOrder[0]) {
       activeOrder[0].classList.remove('active');
     }
+
   }
 
 }

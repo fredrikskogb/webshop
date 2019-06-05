@@ -91,3 +91,7 @@ button {
     text-decoration: underline;
     font-weight: bold;
 }
+
+.option:hover{
+    transform: scale(1.16);
+}
