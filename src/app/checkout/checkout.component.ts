@@ -12,35 +12,34 @@ export class CheckoutComponent implements OnInit {
   // send cart to form @Input
   cart: IMovie[];
   mappedCart: any[];
-  totalPrice: number = 0;
+  totalPrice = 0;
 
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
-    this.cart = JSON.parse(localStorage.getItem('cart')); 
+    this.cart = JSON.parse(localStorage.getItem('cart'));
     this.duplicateToOne();
     this.getTotalPrice();
   }
 
   // Map cart with duplicates to one object, increase amount and price
-  duplicateToOne(){
-    this.mappedCart = this.cart.map(function(item) {
+  duplicateToOne() {
+    this.mappedCart = this.cart.map((item) => {
       return {
         id: item.id,
         name: item.name,
         price: item.price,
         amount: 1
-      }
-    }).reduce(function(acc, item) {
-      const double = acc.find(function(check) {
+      };
+    }).reduce((acc, item) => {
+      const double = acc.find((check) => {
         return (item.id === check.id);
       });
       if (double) {
         const initPrice = double.price / double.amount;
         double.amount = double.amount += 1;
         double.price += initPrice;
-      }
-      else {
+      } else {
         acc.push(item);
       }
       return acc;
@@ -49,26 +48,26 @@ export class CheckoutComponent implements OnInit {
 
   getTotalPrice() {
     this.totalPrice = 0;
-    for(let i = 0; i < this.mappedCart.length; i++){
+    for (let i = 0; i < this.mappedCart.length; i++) {
       this.totalPrice = this.totalPrice + this.mappedCart[i].price;
     }
   }
 
   // Remove product, update local storage 'cart', update cart icon with correct amount with cart-service.ts
-  removeItem(i: number, id: number){
-    let index = this.cart.findIndex(function(obj){
+  removeItem(i: number, id: number) {
+    const index = this.cart.findIndex((obj) => {
       return obj.id === id;
     });
-    if(index !== -1){
+    if (index !== - 1) {
       this.cart.splice(index, 1);
       this.cartService.updateCart(this.cart);
     }
 
     const initPrice = this.mappedCart[i].price / this.mappedCart[i].amount;
     this.mappedCart[i].amount -= 1;
-    this.mappedCart[i].price = initPrice * this.mappedCart[i].amount; 
-    
-    if(this.mappedCart[i].amount === 0){
+    this.mappedCart[i].price = initPrice * this.mappedCart[i].amount;
+
+    if (this.mappedCart[i].amount === 0) {
       this.mappedCart.splice(i, 1);
     }
 

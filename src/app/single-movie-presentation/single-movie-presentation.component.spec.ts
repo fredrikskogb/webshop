@@ -16,12 +16,12 @@ describe('SingleMoviePresentationComponent', () => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, HttpClientModule ],
       declarations: [ SingleMoviePresentationComponent, LoadingAnimationComponent ]
-      
+
     })
 
     .overrideComponent(SingleMoviePresentationComponent, { set: { providers: [ {provide: DataService, useClass: MockDataService}]}})
     .compileComponents();
-    
+
   }));
 
   beforeEach(() => {

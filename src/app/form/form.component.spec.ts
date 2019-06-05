@@ -34,8 +34,8 @@ describe('FormComponent', () => {
   it('should create order rows array', () => {
     expect(component.orderRows).toEqual([]);
   });
-    
-  it('should structure order rows', () => { 
+
+  it('should structure order rows', () => {
     const mockMovie: IMovie = new MockDataService().movies[0];
     component.cart = [mockMovie];
     component.mapItems();
