@@ -68,14 +68,14 @@ describe('CheckoutComponent', () => {
       const length = component.cart.length;
       expect(component.cart.length).toBe(length);
       component.removeItem(0, 76);
-      expect(component.cart.length).toBe(length-1);
+      expect(component.cart.length).toBe(length - 1);
     });
 
     it('should remove clicked item from local storage', () => {
       const length = component.cart.length;
       expect(component.cart.length).toBe(length);
       component.removeItem(0, 76);
-      expect(JSON.parse(localStorage.getItem('cart')).length).toBe(length-1);
+      expect(JSON.parse(localStorage.getItem('cart')).length).toBe(length - 1);
     });
 
   });

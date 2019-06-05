@@ -7,7 +7,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 describe('DataService', () => {
   beforeEach(() => TestBed.configureTestingModule({
     imports: [HttpClientModule, RouterTestingModule]
-  }));;
+  }));
 
   it('should be created', () => {
     const service: DataService = TestBed.get(DataService);

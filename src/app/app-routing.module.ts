@@ -10,7 +10,7 @@ import { AdminComponent } from './admin/admin.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 
-const appRoutes = 
+const appRoutes =
   [
     { path: '', component: MoviesComponent },
     { path: 'movie/:id', component: SingleMoviePresentationComponent },
@@ -24,7 +24,7 @@ const appRoutes =
 @NgModule({
   imports: [
     RouterModule.forRoot(appRoutes),
-    CommonModule, 
+    CommonModule,
   ],
   exports: [RouterModule],
   declarations: []

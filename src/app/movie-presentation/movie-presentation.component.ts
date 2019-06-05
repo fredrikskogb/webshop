@@ -8,6 +8,6 @@ import { IMovie } from '../interfaces/IMovie';
 })
 export class MoviePresentationComponent {
 
-  @Input() movie: IMovie[]; 
+  @Input() movie: IMovie[];
 
 }

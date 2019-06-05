@@ -6,8 +6,8 @@ import { IMovie } from '../interfaces/IMovie';
   templateUrl: './search-result-presentation.component.html',
   styleUrls: ['./search-result-presentation.component.css']
 })
-export class SearchResultPresentationComponent{
+export class SearchResultPresentationComponent {
 
-  @Input() movie: IMovie[]; 
+  @Input() movie: IMovie[];
 
 }

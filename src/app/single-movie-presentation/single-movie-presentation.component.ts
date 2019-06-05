@@ -12,16 +12,16 @@ import { ActivatedRoute } from '@angular/router';
 export class SingleMoviePresentationComponent implements OnInit {
 
   movie: IMovie;
-  loading: boolean = false;
+  loading = false;
 
-  constructor(private route: ActivatedRoute, private service: DataService, private cartService: CartService){ }
+  constructor(private route: ActivatedRoute, private service: DataService, private cartService: CartService) { }
 
   // Get movie through route params id
   ngOnInit() {
-    this.route.params.subscribe(myParams => {  
-      let i = parseInt(myParams["id"]);
-      this.service.getMovie(i).subscribe((data) => { 
-        this.movie = data;   
+    this.route.params.subscribe(myParams => {
+      const i = parseInt(myParams.id);
+      this.service.getMovie(i).subscribe((data) => {
+        this.movie = data;
         this.loading = true;
       });
     });
