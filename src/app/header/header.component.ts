@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
   }
 
   // Gives search suggestions to user in a div
-  getSuggestions() {
+  getSuggestions(e) {
     this.suggestions = [];
     if (this.searchValue.length > 0) {
       this.dataService.search(this.searchValue).subscribe(suggestion => {
@@ -54,6 +54,7 @@ export class HeaderComponent implements OnInit {
   setSearchValue(name) {
     this.searchValue = name;
     this.suggestions = [];
+    document.getElementById("searchInput").focus();
   }
 
 }

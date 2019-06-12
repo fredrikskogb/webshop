@@ -96,8 +96,8 @@ export class MockDataService implements IDataService {
     return of(this.movies);
   }
 
-  getMovie(): Observable<IMovie> {
-    return of(this.movies[0]);
+  getMovie(i): Observable<IMovie> {
+    return of(this.movies.find(item => item.id === i));
   }
 
   getCategory(): Observable<ICategory[]> {
