@@ -6,6 +6,8 @@ import { SingleMoviePresentationComponent } from './single-movie-presentation.co
 import { DataService } from '../services/data.service';
 import { MockDataService } from '../services/mock-data.service';
 import { LoadingAnimationComponent } from '../ui/loading-animation/loading-animation.component';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 
 describe('SingleMoviePresentationComponent', () => {
@@ -13,13 +15,13 @@ describe('SingleMoviePresentationComponent', () => {
   let fixture: ComponentFixture<SingleMoviePresentationComponent>;
 
   beforeEach(async(() => {
+
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, HttpClientModule ],
-      declarations: [ SingleMoviePresentationComponent, LoadingAnimationComponent ]
-
+      declarations: [ SingleMoviePresentationComponent, LoadingAnimationComponent ],
+      providers: [{ provide: ActivatedRoute, useValue: { params: of({id: 76}) }},
+        { provide: DataService, useClass: MockDataService }]
     })
-
-    .overrideComponent(SingleMoviePresentationComponent, { set: { providers: [ {provide: DataService, useClass: MockDataService}]}})
     .compileComponents();
 
   }));
