@@ -6,7 +6,7 @@
 
 .movieLoopContainer {
     flex: 1 0 16%; 
-    margin: 0 2em 4em 2em;
+    margin: 0 1em 2em 1em;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -352,8 +352,10 @@ template {
 }
 
 body {
-  background-color: #403B4A;
-  background: linear-gradient(to right, rgb(24, 28, 36) 1%, rgb(41, 45, 49), rgb(24, 30, 36)  99%);
+  /*background-color: #403B4A;*/
+  background-color: rgb(159, 156, 165);
+
+ /* background: linear-gradient(to right, rgb(24, 28, 36) 1%, rgb(41, 45, 49), rgb(24, 30, 36)  99%);*/
   color: white;
   padding-top: 100px;
 }
