@@ -6,8 +6,8 @@ import { MockDataService } from '../services/mock-data.service';
 import { SearchResultPresentationComponent } from '../search-result-presentation/search-result-presentation.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { LoadingAnimationComponent } from '../ui/loading-animation/loading-animation.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 describe('SearchResultComponent', () => {
   let component: SearchResultComponent;
@@ -18,7 +18,8 @@ describe('SearchResultComponent', () => {
       declarations: [ SearchResultComponent, SearchResultPresentationComponent, LoadingAnimationComponent ],
       imports: [RouterTestingModule]
     })
-    .overrideComponent(SearchResultComponent, { set: { providers: [ {provide: DataService, useClass: MockDataService}]}})
+    .overrideComponent(SearchResultComponent, { set: { providers: [{ provide: ActivatedRoute, useValue: { params: of({searchValue: "Interstellar"}) }},
+     {provide: DataService, useClass: MockDataService}]}})
     .compileComponents();
   }));
 
@@ -30,5 +31,10 @@ describe('SearchResultComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should contain movie of id 76', () => {
+    console.log(component.movies);
+    expect(component.movies[0].id).toBe(76);
   });
 });
