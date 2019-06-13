@@ -5,7 +5,6 @@ import { Observable, throwError, Subject } from 'rxjs';
 import { IMovie } from '../interfaces/IMovie';
 import { IOrder } from '../interfaces/IOrder';
 import { catchError } from 'rxjs/operators';
-import { Router } from '@angular/router';
 import { ICategory } from '../interfaces/ICategory';
 
 @Injectable({
@@ -13,10 +12,7 @@ import { ICategory } from '../interfaces/ICategory';
 })
 
 export class DataService implements IDataService {
-  constructor(private http: HttpClient, private router: Router) { }
-
-  private searchedProduct = new Subject();
-
+  constructor(private http: HttpClient) { }
 
   getData(): Observable<IMovie[]> {
     return this.http.get<IMovie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/products');
@@ -43,7 +39,7 @@ export class DataService implements IDataService {
     .pipe(catchError(this.errorHandler));
   }
 
-  search(input) {
+  search(input: string) {
     return this.http.get<IMovie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/search?searchText=' + input);
   }
 

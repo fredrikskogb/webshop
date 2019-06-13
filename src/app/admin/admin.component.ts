@@ -77,6 +77,7 @@ export class AdminComponent implements OnInit {
     this.resetActiveOrder();
   }
 
+  // Display order about to deleted with green background/highlight
   activeOrder(id) {
     const modal = document.getElementById('orderToDelete');
     const orderId = document.getElementsByClassName(id);
@@ -94,6 +95,7 @@ export class AdminComponent implements OnInit {
 
   }
 
+  // Remove highlighted green background for order that was about to be deleted
   resetActiveOrder() {
     const modal = document.getElementById('orderToDelete');
     const activeOrder = document.getElementsByClassName('active');
