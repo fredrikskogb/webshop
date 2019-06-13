@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
-
 import { FormComponent } from './form.component';
 import { IMovie } from '../interfaces/IMovie';
 import { MockDataService } from '../services/mock-data.service';

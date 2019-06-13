@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed, inject, fakeAsync } from '@angular/core/testing';
-
 import { AdminComponent } from './admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from '../services/data.service';

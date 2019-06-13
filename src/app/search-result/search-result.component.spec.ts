@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SearchResultComponent } from './search-result.component';
 import { DataService } from '../services/data.service';
 import { MockDataService } from '../services/mock-data.service';

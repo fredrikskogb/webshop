@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
   }
 
   // Gives search suggestions to user in a div
-  getSuggestions(e) {
+  getSuggestions() {
     this.suggestions = [];
     if (this.searchValue.length > 0) {
       this.dataService.search(this.searchValue).subscribe(suggestion => {
