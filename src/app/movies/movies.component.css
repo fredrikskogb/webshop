@@ -1,7 +1,7 @@
 .moviesContainer {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 4em;
+    margin-top: 6em;
 }
 
 .movieLoopContainer {
@@ -10,6 +10,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#background {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+}
+
+#backgroundImage {
+    width: inherit;
+    height: inherit;
 }
 
 @media only screen and (min-width: 998px) {

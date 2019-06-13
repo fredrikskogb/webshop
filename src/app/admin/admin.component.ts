@@ -33,9 +33,9 @@ export class AdminComponent implements OnInit {
   // Loop through orders, orderRows in orders and movies(compare product id)
   // Set informal values for user in orderPresentation to display in HTML
   mapItems() {
-    for (let i = 0; i < this.order.length; i++) {
-      for ( let j = 0; j < this.order[i].orderRows.length; j++) {
-        for (let k = 0; k < this.movies.length; k++) {
+    for (let i = 0; i < this.order.length; i++) { // First loop orders
+      for ( let j = 0; j < this.order[i].orderRows.length; j++) { // Loop products in order
+        for (let k = 0; k < this.movies.length; k++) { // Loop available products to compare id with ordered products id
           if (this.order[i].orderRows[j].productId === this.movies[k].id) {
             if (this.order[i].orderRows[j].amount > 1) {
               this.price = this.movies[k].price * this.order[i].orderRows[j].amount;
