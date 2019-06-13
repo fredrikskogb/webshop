@@ -5,7 +5,6 @@ import { Observable, throwError, Subject } from 'rxjs';
 import { IMovie } from '../interfaces/IMovie';
 import { IOrder } from '../interfaces/IOrder';
 import { catchError } from 'rxjs/operators';
-import { Router } from '@angular/router';
 import { ICategory } from '../interfaces/ICategory';
 
 @Injectable({
@@ -13,10 +12,7 @@ import { ICategory } from '../interfaces/ICategory';
 })
 
 export class DataService implements IDataService {
-  constructor(private http: HttpClient, private router: Router) { }
-
-  private searchedProduct = new Subject();
-
+  constructor(private http: HttpClient) { }
 
   getData(): Observable<IMovie[]> {
     return this.http.get<IMovie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/products');
@@ -34,20 +30,20 @@ export class DataService implements IDataService {
     return this.http.get<IOrder[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders/?companyId=13');
   }
 
-  deleteOrder(id: number): Observable<any>{
+  deleteOrder(id: number): Observable<any> {
     return this.http.delete('https://medieinstitutet-wie-products.azurewebsites.net/api/orders/' + id);
   }
 
-  setOrder(order: IOrder): Observable<IOrder>{
+  setOrder(order: IOrder): Observable<IOrder> {
     return this.http.post<IOrder>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders/', order)
     .pipe(catchError(this.errorHandler));
   }
 
-  search(input){
+  search(input: string) {
     return this.http.get<IMovie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/search?searchText=' + input);
   }
-  
-  errorHandler(error: HttpErrorResponse){
+
+  errorHandler(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', error.error.message);

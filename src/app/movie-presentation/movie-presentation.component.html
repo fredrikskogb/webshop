@@ -1,6 +1,9 @@
-<img src="{{ movie?.imageUrl }}" alt="Poster of the film: {{ movie?.name }}" class="movieImage" [routerLink]="['/movie', movie?.id]">
-<div class="nameAndPriceContainer">
-    <p>{{ movie?.name }}, {{ movie?.year }}</p>
-    <p *ngFor="let category of movie?.productCategory">{{ category.category }}</p>
-    <p>{{ movie?.price }}:-</p>
+<div class="movieLoopContainer" *ngIf="movie">
+    <img src="{{ movie.imageUrl }}" alt="Poster of the film: {{ movie.name }}" class="movieImage"
+        [routerLink]="['/movie', movie.id]">
+    <div class="nameAndPriceContainer">
+        <p>{{ movie.name }}, {{ movie.year }}</p>
+        <p *ngFor="let category of movie.productCategory">{{ category.category }}</p>
+        <p>{{ movie.price }}:-</p>
+    </div>
 </div>

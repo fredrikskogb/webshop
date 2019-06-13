@@ -4,6 +4,7 @@ import { IMovie } from '../interfaces/IMovie';
 import { Router } from '@angular/router';
 import { IOrder } from '../interfaces/IOrder';
 
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -14,88 +15,96 @@ export class AdminComponent implements OnInit {
   order: IOrder[];
   movies: IMovie[];
   orderPresentation: any = [];
-  display: boolean = true;
   price: number;
   orderToDelete: number;
 
   constructor(private service: DataService, private router: Router) { }
 
   ngOnInit() {
-    this.service.getOrder().subscribe((data) => { this.order = data; });
-    this.service.getData().subscribe((data) => { this.movies = data; });
+    this.service.getOrder().subscribe((order) => {
+      this.order = order;
+      this.service.getData().subscribe((data) => {
+        this.movies = data;
+        this.mapItems();
+      });
+    });
   }
 
   // Loop through orders, orderRows in orders and movies(compare product id)
   // Set informal values for user in orderPresentation to display in HTML
-  mapItems(){
-    for(let i = 0; i < this.order.length; i++){
-      for( let j = 0; j < this.order[i].orderRows.length; j++){
-        for(let k = 0; k < this.movies.length; k++){
-          if(this.order[i].orderRows[j].productId === this.movies[k].id){
-            if(this.order[i].orderRows[j].amount > 1){
+  mapItems() {
+    for (let i = 0; i < this.order.length; i++) { // First loop orders
+      for ( let j = 0; j < this.order[i].orderRows.length; j++) { // Loop products in order
+        for (let k = 0; k < this.movies.length; k++) { // Loop available products to compare id with ordered products id
+          if (this.order[i].orderRows[j].productId === this.movies[k].id) {
+            if (this.order[i].orderRows[j].amount > 1) {
               this.price = this.movies[k].price * this.order[i].orderRows[j].amount;
-            }else{
+            } else {
               this.price = this.movies[k].price;
             }
 
-            let ordered = 
-              {
+            const ordered = {
                 amount: this.order[i].orderRows[j].amount,
-                orderId: this.order[i]["id"],
+                orderId: this.order[i].id,
                 name: this.movies[k].name,
                 year: this.movies[k].year,
                 imageUrl: this.movies[k].imageUrl,
                 price: this.price
-              };
-          
+            };
+
             this.orderPresentation.unshift(ordered);
           }
         }
       }
     }
-    this.display = !this.display;
-    if(this.orderPresentation.length === 0){
+
+    if (this.orderPresentation.length === 0) {
       this.router.navigate(['**']);
     }
+
     return;
   }
 
-  deleteOrder(){
+  deleteOrder() {
     this.service.deleteOrder(this.orderToDelete).subscribe();
+
     for (let i = this.orderPresentation.length - 1; i >= 0; --i) {
       if (this.orderPresentation[i].orderId === this.orderToDelete) {
-        this.orderPresentation.splice(i,1);
+        this.orderPresentation.splice(i, 1);
       }
     }
+
     this.resetActiveOrder();
   }
 
-  activeOrder(id){
-    const modal = document.getElementById("orderToDelete");
+  // Display order about to deleted with green background/highlight
+  activeOrder(id) {
+    const modal = document.getElementById('orderToDelete');
     const orderId = document.getElementsByClassName(id);
-    const activeOrder = document.getElementsByClassName("active");
+    const activeOrder = document.getElementsByClassName('active');
     this.orderToDelete = id;
 
-    if(activeOrder.length === 0){
-      modal.style.display = "block";
-
-      for(let i = 0; i < orderId.length; i++){
+    if (activeOrder.length === 0) {
+      modal.style.display = 'block';
+      for (let i = 0; i < orderId.length; i++) {
         orderId[i].className += ' active';
       }
-    }else{
+    } else {
       this.resetActiveOrder();
     }
 
   }
 
-  resetActiveOrder(){
-    const modal = document.getElementById("orderToDelete");
-    const activeOrder = document.getElementsByClassName("active");
-    modal.removeAttribute("style");
+  // Remove highlighted green background for order that was about to be deleted
+  resetActiveOrder() {
+    const modal = document.getElementById('orderToDelete');
+    const activeOrder = document.getElementsByClassName('active');
+    modal.removeAttribute('style');
 
     while (activeOrder[0]) {
       activeOrder[0].classList.remove('active');
     }
+
   }
 
 }

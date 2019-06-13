@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
-
 import { FormComponent } from './form.component';
 import { IMovie } from '../interfaces/IMovie';
 import { MockDataService } from '../services/mock-data.service';
@@ -34,8 +33,8 @@ describe('FormComponent', () => {
   it('should create order rows array', () => {
     expect(component.orderRows).toEqual([]);
   });
-    
-  it('should structure order rows', () => { 
+
+  it('should structure order rows', () => {
     const mockMovie: IMovie = new MockDataService().movies[0];
     component.cart = [mockMovie];
     component.mapItems();

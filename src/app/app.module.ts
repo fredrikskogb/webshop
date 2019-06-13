@@ -2,9 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-
-
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MoviesComponent } from './movies/movies.component';
@@ -18,6 +16,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { SearchResultComponent } from './search-result/search-result.component';
 import { SearchResultPresentationComponent } from './search-result-presentation/search-result-presentation.component';
 import { LoadingAnimationComponent } from './ui/loading-animation/loading-animation.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -41,7 +40,8 @@ import { LoadingAnimationComponent } from './ui/loading-animation/loading-animat
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

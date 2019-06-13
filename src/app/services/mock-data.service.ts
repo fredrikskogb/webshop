@@ -12,27 +12,27 @@ export class MockDataService implements IDataService {
 
   constructor() { }
 
-  movies: IMovie[] = 
+  movies: IMovie[] =
   [
     {
       id: 76,
-      name: "The Dark Knight",
-      description: "otham, the Dark Knight must accept one of the greatest psychological and physical tests of his ability to fight injustice",
+      name: 'The Dark Knight',
+      description: 'otham, t psychological and physical tests of his ability to fight injustice',
       price: 199,
-      imageUrl: "https://images-na.ssl-images-amazon.com/images/I/51k98elC6mL.jpg",
+      imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/51k98elC6mL.jpg',
       year: 2008,
-      added: "2016-01-05T00:00:00",
-      productCategory: [{categoryId:5,category:null}, {categoryId:6,category:null}]
+      added: '2016-01-05T00:00:00',
+      productCategory: [{categoryId: 5, category: null}, {categoryId: 6, category: null}]
     },
     {
       id: 77,
-      name: "Pulp fiction",
-      description: "sical tests of his ability to fight injustice",
+      name: 'Pulp fiction',
+      description: 'sical tests of his ability to fight injustice',
       price: 799,
-      imageUrl: "https://static.posters.cz/image/750webp/1288.webp",
+      imageUrl: 'https://static.posters.cz/image/750webp/1288.webp',
       year: 2008,
-      added: "2016-01-05T00:00:00",
-      productCategory: [{categoryId:5,category:null}, {categoryId:6,category:null}]
+      added: '2016-01-05T00:00:00',
+      productCategory: [{categoryId: 5, category: null}, {categoryId: 6, category: null}]
     }
   ];
 
@@ -41,12 +41,12 @@ export class MockDataService implements IDataService {
     {
       id: 1,
       companyId: 13,
-      created: "2016-01-05T00:00:00",
+      created: '2016-01-05T00:00:00',
       createdBy: null,
       paymentMethod: null,
       totalPrice: 100,
       status: 0,
-      orderRows: 
+      orderRows:
         [
           {
             productId: 76,
@@ -57,12 +57,12 @@ export class MockDataService implements IDataService {
     {
       id: 2,
       companyId: 13,
-      created: "2016-01-05T00:00:00",
+      created: '2016-01-05T00:00:00',
       createdBy: null,
       paymentMethod: null,
       totalPrice: 100,
       status: 0,
-      orderRows: 
+      orderRows:
         [
           {
             productId: 77,
@@ -72,32 +72,32 @@ export class MockDataService implements IDataService {
     }
   ];
 
-  categories: ICategory[] = 
+  categories: ICategory[] =
   [
     {
       id: 5,
-      name: "Action"
+      name: 'Action'
     },
     {
       id: 6,
-      name: "Thriller"
+      name: 'Thriller'
     },
     {
       id: 7,
-      name: "Comedy"
+      name: 'Comedy'
     },
     {
       id: 8,
-      name: "Sci-fi"
+      name: 'Sci-fi'
     }
-  ]
+  ];
 
   getData(): Observable<IMovie[]> {
     return of(this.movies);
   }
 
-  getMovie(): Observable<IMovie> {
-    return of(this.movies[0]);
+  getMovie(i): Observable<IMovie> {
+    return of(this.movies.find(item => item.id === i));
   }
 
   getCategory(): Observable<ICategory[]> {
@@ -108,14 +108,14 @@ export class MockDataService implements IDataService {
     return of(this.order);
   }
 
-  search(input): Observable<IMovie[]>{
+  search(input): Observable<IMovie[]> {
     return of(this.movies);
   }
 
-  deleteOrder(id: number){
+  deleteOrder(id: number) {
     for (let i = this.order.length - 1; i >= 0; --i) {
       if (this.order[i].orderRows[0].productId === id) {
-        this.order.splice(i,1);
+        this.order.splice(i, 1);
       }
     }
     return of(this.order);

@@ -24,7 +24,7 @@ describe('AppComponent', () => {
         AppComponent,
         HeaderComponent,
         MoviesComponent,
-        MoviePresentationComponent, 
+        MoviePresentationComponent,
         SingleMoviePresentationComponent,
         CheckoutComponent,
         FormComponent,

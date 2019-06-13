@@ -16,6 +16,7 @@
 
 button {
     cursor: pointer;
+    width: 192px;
 }
 
 #deleteButton {
@@ -33,6 +34,14 @@ button {
 #singleMovie {
     margin: 4em 1em 4em 1em;
     min-width: 13%;
+    min-height: 550px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+#singleMovie p {
+    max-width: 200px;
 }
 
 .active {
@@ -42,6 +51,35 @@ button {
 #orderToDelete{
     display: none;
     text-align: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-30%, -50%);
+    background-color: white;
+    color: black;
+    padding: 1em;
+    opacity: 0.9;
+    border-radius: 5px;
+    font-size: 120%;
+    cursor: grab;
+}
+
+#orderToDelete:active{
+    box-shadow: 1px 1px 0px #999,
+    4px 4px 0px rgba(51, 51, 51, 0.25),
+    6px 6px 0px rgba(44, 44, 44, 0.25),
+    8px 8px 0px rgb(32, 32, 32, 0.25),
+    10px 10px 0px rgb(29, 29, 29, 0.25),
+    12px 12px 0px rgb(32, 32, 32, 0.25);
+    transition: 0.05s;
+    cursor: move;
+    background-color: rgb(252, 253, 248);
+    padding: 1.1em;
+}
+
+#orderToDelete p {
+    opacity: 1;
+    z-index: 21;
 }
 
 .option {
@@ -50,4 +88,9 @@ button {
     margin: 10px;
     color: orange;
     text-decoration: underline;
+    font-weight: bold;
+}
+
+.option:hover{
+    transform: scale(1.16);
 }
