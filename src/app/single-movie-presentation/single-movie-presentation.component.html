@@ -1,4 +1,4 @@
-<div class="singleMovieContainer">
+<div class="singleMovieContainer" *ngIf="movie">
     <div>
         <img src="{{ movie.imageUrl }}" alt="Poster of the film: {{ movie.name }}" class="poster">
         <div class="addToCart">
@@ -7,9 +7,8 @@
         </div>
     </div>
     <div class="descriptionContainer">
-        <p class="title">{{ movie?.name }}, {{ movie?.year }}</p>
-        <p *ngFor="let category of movie.productCategory">{{ category.category }}</p>
-        <p class='description'>{{ movie?.description }}</p>
+        <p class="title">{{ movie.name }}, {{ movie.year }}</p>
+        <p class='description'>{{ movie.description }}</p>
     </div>
 </div>
 <app-loading-animation *ngIf='!loading'></app-loading-animation>
